@@ -419,14 +419,14 @@ $ npm install metasync
 - Returns: cache instance
 
 ## Splits string by the first occurrence of separator
-`api.interfaceName.section`
+`common.section`
 - `s,` - String
 - `separator` - char or String
 - Example: rsection('All you need is JavaScript', 'is')
 - Returns: ['All you need ', ' JavaScript']
 
 ## Splits string by the last occurrence of separator
-`api.interfaceName.rsection`
+`commin.rsection`
 - `s,` - String
 - `separator` - char or String
 - Example: rsection('All you need is JavaScript', 'a')
