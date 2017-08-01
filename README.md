@@ -420,14 +420,14 @@ $ npm install metasync
 
 ## Splits string by the first occurrence of separator
 `common.section`
-- `s,` - String
+- `s` - String
 - `separator` - char or String
 - Example: rsection('All you need is JavaScript', 'is')
 - Returns: ['All you need ', ' JavaScript']
 
 ## Splits string by the last occurrence of separator
 `commin.rsection`
-- `s,` - String
+- `s` - String
 - `separator` - char or String
 - Example: rsection('All you need is JavaScript', 'a')
 - Returns: ['All you need is Jav', 'Script']
