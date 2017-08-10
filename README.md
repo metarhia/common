@@ -19,32 +19,38 @@ $ npm install metasync
 `common.splitAt(index, array)`
 - `index:number` - index defining end of first part and start of second
 - `array:array` - to be splitted
+
 Returns: tuple with two parts of the array
 
 ### Check is value scalar
 `common.isScalar(value)`
 - `value` - scalar value or Object
+
 Returns: boolean
 
 ### Copy dataset (copy objects to new array)
 `common.copy(ds)`
 - `ds:array of objects` - source dataset
+
 Returns: array of objects
 
 ### Clone Object
 `common.clone(obj)`
 - `obj:object or array`
+
 Returns: object or array
 
 ### Duplicate object ot array
 `common.duplucate(obj)`
 - `obj:object or array`
+
 Returns: object or array
 
 ### Read property by dot-separated path
 `common.getByPath(data, dataPath)`
 - `data:hash`
 - `dataPath:string` - dot-separated path
+
 Returns: value
 
 ### Set property by dot-separated path
@@ -57,11 +63,13 @@ Returns: value
 `common.deleteByPath(data, dataPath)`
 - `data:object`
 - `dataPath:string` - dot-separated path
+
 Returns: boolean
 
 ### Distinct merge miltiple arrays
 `common.merge(...args)`
 - `args:array of array`
+
 Returns: array
 
 ### Substitute variables
@@ -70,57 +78,73 @@ Returns: array
 - `data:hash` - data structure to visualize
 - `dataPath:string` - current position in data structure
 - `escapeHtml:boolean` - escape html special characters if true
+
 Returns: string
 
 ### Escape html characters
 `common.htmlEscape(content)`
 - `content:string` - to escape
+
 Returns: string
+
 Example: `htmlEscape('5>=5') = '5&lt;=5'`
 
 ### Extract file extension in lower case with no dot
 `common.fileExt(fileName, Result)`
 - `fileName:string` - file name
+
 Returns: string
+
 Example: `fileExt('/dir/file.txt')`
+
 Result: 'txt'
 
 ### Remove file extension from file name
 `common.removeExt(fileName, Result)`
 - `fileName:string` - file name
+
 Returns: string
+
 Example: `fileExt('file.txt')`
+
 Result: 'file'
 
 ### Convert spinal case to camel case
 `common.spinalToCamel(name)`
 - `name:string`
+
 Returns: string
 
 ### Escape regular expression control characters
 `common.escapeRegExp(s)`
 - `s:string`
+
 Returns: string
+
 Example:  escapeRegExp('/path/to/res?search=this.that')`
 
 ### Generate escaped regular expression
 `common.newEscapedRegExp(s)`
 - `s:string`
+
 Returns: RegExp, instance
 
 ### Add trailing slash at the end if it has no
 `common.addTrailingSlash(s)`
 - `s:string`
+
 Returns: string
 
 ### Remove trailing slash from string
 `common.stripTrailingSlash(s)`
 - `s:string`
+
 Returns: string
 
 ### Get directory name with trailing slash from path
 `common.dirname(filePath)`
 - `filePath:string`
+
 Returns: string
 
 ### Capitalize string
@@ -132,45 +156,55 @@ Returns: string
 - `s:string` - source
 - `prefix:string` - before needed fragment
 - `suffix:string` - after needed fragment
+
 Returns: string
 
 ### Remove UTF-8 BOM
 `common.removeBOM(s)`
 - `s:string` - possibly starts with BOM
+
 Returns: string
 
 ### Generate RegExp from array with '*' wildcards
 `common.arrayRegExp(items)`
 - `items:array of string`
+
 Returns: RegExp, instance
+
 Example: `['/css/*', '/index.html']`
 
 ### Compare time1 and time2
 `common.isTimeEqual(time1, time2)`
 - `time1:string` - time or milliseconds
 - `time2:string` - time or milliseconds
+
 Returns: boolean
+
 Example: `isTimeEqual(sinceTime, buffer.stats.mtime);`
 
 ### Current date in YYYY-MM-DD format
 `common.nowDate(now)`
 - `now:Date` (optional)
+
 Returns: string
 
 ### Current date in YYYY-MM-DD  hh:mm format
 `common.nowDateTime(now)`
 - `now:Date` (optional)
+
 Returns: string
 
 ### Function for mapping object fields
 `common.omap(mapFn, obj)`
 - `mapFn:funtion` - to appy to every field value
 - `obj:object` - which fields used for mapping
+
 Returns: object, with same reference but with transformed fields
 
 ### Compose multiple functions into one
 `common.compose(...fns)`
 - `fns:array of function`
+
 Returns: function, composed
 
 ### Apply given function to value or default value
@@ -178,27 +212,33 @@ Returns: function, composed
 - `fn:function`
 - `defVal` - default value
 - `value` (optional)
+
 Returns: result of `fn` or `defVal`
 
 ### Zipping several arrays into one
 `common.zip(...arrays)`
 - `arrays` - array of array
+
 Returns: array, length is minimal of input arrays length
-Element with index i of resulting array is array with
+
+Hint: Element with index i of resulting array is array with
 elements with index i from input arrays
 
 ### Create array of replicated value
 `common.replicate(count, elem)`
 - `count:number` - new array length
 - `elem` - value to replicate
+
 Returns: array, replicated
 
 ### Zipping arrays using specific function
 `common.zipWith(fn, ...arrays)`
 - `fn:function` - for zipping elements with index i
 - `arrays:array of array`
+
 Returns: array
-Element with index i of resulting array is result of fn called with arguments from arrays
+
+Hint: Element with index i of resulting array is result of fn called with arguments from arrays
 
 ### Curries function until the condition
 `common.curryUntil(condition, fn, ...args)`
@@ -212,39 +252,47 @@ Returns: function, curried
 - `fn:function` - curried
 - `count:number` - of times function should be curried
 - `args:array` - arguments for first currying
+
 Returns: function, curried given times count
 
 ### Curry function curry with fn
 `common.curryTwice(fn)`
 - `fn:function` - to be curried
+
 Returns: function, to pass arguments that returns curried fn
 
 ### Curry function with given arguments
 `common.curry(fn, ...args)`
 - `fn:function`
 - `args:array` - arguments
+
 Returns: function, curried
 
 ### Apply arguments
 `common.applyArgs(...args)`
 - `args:array` - arguments to save in closure
+
 Returns: function, to pass (fn) arguments will be applied
 
 ### Get first not errored result of fn
 `common.either(fn)`
 - `fn:function` - to be called
+
 Returns: result of `fn`
 
 ### Empy function
 `common.falseness()`
+
 Returns: boolean, always false
 
 ### Empy function
 `common.trueness()`
+
 Returns: boolean, always true
 
 ### Empy function
 `common.emptiness()`
+
 Returns: always undefined
 
 ### Empy asynchronous callback-last single-argument function
@@ -259,32 +307,39 @@ Returns: always undefined
 ### Wrap callback: call once, not null
 `common.cb(callback)`
 - `callback:function` (optional)
+
 Returns: function, wrapped callback
 
 ### Exctracts callback and wraps it with common.cb
 `common.cbExtract(args)
 callback is last argument, otherwise it's common.falseness, args
 - `args:array` - arguments
+
 Returns: function, wrapped callback
 
 ### Override method: save old to `fn.inherited`
 `common.override(obj, fn, Hint)`
 - `obj:object` - containing method to override
 - `fn:function` - name will be used to find method
+
 Hint: Previous function will be accessible by obj.fnName.inherited
 
 ### Generate int array from given range
 `common.range(from, to)`
 - `from:naumber` - range start
 - `to:naumber` - range end
+
 Returns: array
+
 Example: `range(1, 5) = [1, 2, 3, 4, 5]`
 
 ### Generate int array from sequence syntax
 `common.sequence(seq, max, list, range from..to, range from..count, range from..max-to)`
 - `seq:array`
 - `max:number` - optional max
+
 Returns: array
+
 Example:
 - list: sequence([81, 82, 83]) = [81, 82, 83]
 - range from..to: sequence([81,,83]) = [81, 82, 83]
@@ -295,50 +350,61 @@ Example:
 `common.random(min, max)`
 - `min:number` - range start
 - `max:number` - range end
+
 Returns: number
 
 ### Shuffle an array
 `common.shuffle(arr)`
 - `arr:array`
+
 Returns: array
 
 ### Enhanced EventEmitter with wildcard
 `common.emitter()`
+
 Returns: EventEmitter, instance
 
 ### Rest left, transfor function
 `common.restLeft(fn)`
 - `fn:function` - (args, arg1..argN, callback)
+
 Returns: function, (arg1..argN, ...args, callback)
 
 ### Parse duration to seconds
 `common.duration(s)`
 - `s:string` - duration syntax
+
 Returns: number, milliseconds
+
 Example: `duration('1d 10h 7m 13s')`
 
 ### Convert int to string size Kb, Mb, Gb and Tb
 `common.bytesToSize(bytes)`
 - `bytes:number` - size
+
 Returns: string
 
 ### Convert string with units to int
 `common.sizeToBytes(size)`
 - `size:string` - size
+
 Returns: number
 
 ### Convert IP string to number
 `common.ip2int(ip)`
 - `ip:string` - IP address
+
 Returns: number
 
 ### Get local network interfaces
 `common.localIPs()`
+
 Returns: srray of strings
 
 ### Parse host string
 `common.parseHost(host)`
 - `host:string` - host or empty string, may contain `:port`
+
 Returns: string, host without port but not empty
 
 ### Divide a long big endian encoded unsigned integer by a small one
@@ -346,39 +412,46 @@ Returns: string, host without port but not empty
 `common.longDivModBE(buffer, divisor)`
 - `buffer:Buffer` - containing a divident
 - `divisor:a divisor as a Number`
+
 Returns: number, the remainder
 
 ### Generate random key
 `common.generateKey(length, possible)`
 - `length:number` - key length
 - `possible:string` - with possible characters
+
 Returns: string, key
 
 ### Generate an RFC4122-compliant GUID (UUID v4)
 `common.generateGUID()`
+
 Returns: string, GUID
 
 ### Generate random SID
 `common.generateSID(config)`
 - `config:record` - { length, characters, secret }
+
 Returns: string, SID
 
 ### Calculate SID CRC
 `common.crcSID(config, key)`
 - `config:record` - { length, characters, secret }
 - `key:string` - SID key
+
 Returns: string, CRC
 
 ### Validate SID
 `common.validateSID(config, sid)`
 - `config:record` - { length, characters, secret }
 - `sid:string` - session id
+
 Returns: boolean
 
 ### Calculate hash with salt
 `common.hash(password, salt)`
 - `password:string`
 - `salt:string`
+
 Returns: string, hash
 
 ### Validate hash
@@ -386,29 +459,37 @@ Returns: string, hash
 - `hash:string`
 - `password:string`
 - `salt:string`
+
 Returns: boolean
 
 ### Compare for array.sort with priority
 `common.sortComparePriority(priority, s1, s2)`
 - `priority:array of strings with priority`
 - `s1, s2:string` - to compare
+
 Returns: number
+
 Example: `files.sort(common.sortComparePriority)`
 
 ### Compare for array.sort, directories first
 `common.sortCompareDirectories(a, b)`
 - `a, b:string` - to compare
+
 Returns: number
+
 Example: `files.sort(sortCompareDirectories);`
 
 ### Compare for array.sort
 `common.sortCompareByName(a, b)`
 - `a, b:object` - { name } to compare
+
 Returns: number
+
 Example: `files.sort(sortCompareByName)`
 
 ### Extend Map interface with:
 `common.cache()`
+
 Returns: object, cache instance
 - `cache.allocated` - total allocated size
 - `cache.add(key, val)` - add record
@@ -419,14 +500,18 @@ Returns: object, cache instance
 `common.section(s, separator)`
 - `s:string`
 - `separator:string` - or char
+
 Example: `rsection('All you need is JavaScript', 'is')`
+
 Returns: `['All you need ', ' JavaScript']`
 
 ### Splits string by the last occurrence of separator
 `common.rsection(s, separator)`
 - `s:string`
 - `separator:string` - or char
+
 Example: `rsection('All you need is JavaScript', 'a')`
+
 Returns: `['All you need is Jav', 'Script']`
 
 ### Mixin for ES6 classes without overriding existing methods
@@ -439,9 +524,13 @@ Returns: `['All you need is Jav', 'Script']`
 - `from:EventEmitter` - to listen for event
 - `to:EventEmitter` - to emit event on
 - `events:array of string` - event names
+
 Example: `common.forwardEvent(from, to);`
+
 Example: `common.forwardEvent(from, to, 'eventName');`
+
 Example: `common.forwardEvent(from, to, { eventName: 'newEventName' });`
+
 Example: `common.forwardEvent(from, to, ['eventName1', 'eventName2']);`
 
 ## Contributors
