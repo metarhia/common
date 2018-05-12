@@ -1,84 +1,25 @@
 'use strict';
 
-api.metatests.test('section normal', (test) => {
-  const s = 'All you need is JavaScript';
-  const result = api.common.section(s, 'is');
-  test.strictSame(result[0], 'All you need ');
-  test.strictSame(result[1], ' JavaScript');
-  test.end();
+api.metatests.case('Metarhia common library', {
+  'common.subst': [
+    [
+      'Hello, @name@', { name: 'Ali' }, '', true,
+      'Hello, Ali'
+    ],
+    [
+      'Hello, @.name@', { person: { name: 'Ali' } }, 'person', true,
+      'Hello, Ali'
+    ],
+  ],
+  'common.section': [
+    ['All you need is JavaScript', 'is',   ['All you need ', ' JavaScript']],
+    ['All you need is JavaScript', 'no', ['All you need is JavaScript', '']],
+    ['All you need is JavaScript', 'JavaScript',   ['All you need is ', '']],
+    ['All you need is JavaScript', 'All',   ['', ' you need is JavaScript']],
+    ['All you need is JavaScript', 'a', ['All you need is J',   'vaScript']],
+  ]
 });
 
-api.metatests.test('section not found', (test) => {
-  const s = 'All you need is JavaScript';
-  const result = api.common.section(s, 'not-found');
-  test.strictSame(result[0], 'All you need is JavaScript');
-  test.strictSame(result[1], '');
-  test.end();
-});
-
-api.metatests.test('section ends with', (test) => {
-  const s = 'All you need is JavaScript';
-  const result = api.common.section(s, 'JavaScript');
-  test.strictSame(result[0], 'All you need is ');
-  test.strictSame(result[1], '');
-  test.end();
-});
-
-api.metatests.test('section strarts with', (test) => {
-  const s = 'All you need is JavaScript';
-  const result = api.common.section(s, 'All');
-  test.strictSame(result[0], '');
-  test.strictSame(result[1], ' you need is JavaScript');
-  test.end();
-});
-
-api.metatests.test('section multiple', (test) => {
-  const s = 'All you need is JavaScript';
-  const result = api.common.section(s, 'a');
-  test.strictSame(result[0], 'All you need is J');
-  test.strictSame(result[1], 'vaScript');
-  test.end();
-});
-
-api.metatests.test('rsection normal', (test) => {
-  const s = 'All you need is JavaScript';
-  const result = api.common.rsection(s, 'is');
-  test.strictSame(result[0], 'All you need ');
-  test.strictSame(result[1], ' JavaScript');
-  test.end();
-});
-
-api.metatests.test('rsection not found', (test) => {
-  const s = 'All you need is JavaScript';
-  const result = api.common.rsection(s, 'not-found');
-  test.strictSame(result[0], 'All you need is JavaScript');
-  test.strictSame(result[1], '');
-  test.end();
-});
-
-api.metatests.test('rsection ends with', (test) => {
-  const s = 'All you need is JavaScript';
-  const result = api.common.rsection(s, 'JavaScript');
-  test.strictSame(result[0], 'All you need is ');
-  test.strictSame(result[1], '');
-  test.end();
-});
-
-api.metatests.test('rsection strarts with', (test) => {
-  const s = 'All you need is JavaScript';
-  const result = api.common.rsection(s, 'All');
-  test.strictSame(result[0], '');
-  test.strictSame(result[1], ' you need is JavaScript');
-  test.end();
-});
-
-api.metatests.test('rsection multiple', (test) => {
-  const s = 'All you need is JavaScript';
-  const result = api.common.rsection(s, 'a');
-  test.strictSame(result[0], 'All you need is Jav');
-  test.strictSame(result[1], 'Script');
-  test.end();
-});
 
 api.metatests.test('split', (test) => {
   const s = 'a,b,c,d';
