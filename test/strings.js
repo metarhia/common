@@ -1,15 +1,11 @@
 'use strict';
 
+/*eslint max-len: ["error", { "code": 120 }]*/
+
 api.metatests.case('Metarhia common library', {
   'common.subst': [
-    [
-      'Hello, @name@', { name: 'Ali' }, '', true,
-      'Hello, Ali'
-    ],
-    [
-      'Hello, @.name@', { person: { name: 'Ali' } }, 'person', true,
-      'Hello, Ali'
-    ],
+    ['Hello, @name@', { name: 'Ali' }, '', true,                      'Hello, Ali'],
+    ['Hello, @.name@', { person: { name: 'Ali' } }, 'person', true,   'Hello, Ali'],
   ],
   'common.section': [
     ['All you need is JavaScript', 'is',   ['All you need ', ' JavaScript']],
@@ -64,5 +60,54 @@ api.metatests.case('Metarhia common library', {
     ['-',                         ''],
     ['_',                         ''],
     ['',                          ''],
+  ],
+  'common.capitalize': [
+    ['abc', 'Abc'],
+    ['Abc', 'Abc'],
+    ['aBC', 'Abc'],
+    ['ABC', 'Abc'],
+    ['a',     'A'],
+    [' bc', ' Bc'],
+    [' ',     ' '],
+    ['',       ''],
+    ['+',     '+'],
+  ],
+  'common.between': [
+    ['abcdefghijk', 'cd', 'h',     'efg'],
+    ['field="value"', '"', '"',  'value'],
+    ['field:"value"', '"', '"',  'value'],
+    ['field[value]', '[', ']',   'value'],
+    ['kjihgfedcba', 'cd', 'h',        ''],
+    ['kjihgfedcba', 'dc', 'h',        ''],
+    ['field="value"', '=', '=',       ''],
+    ['field[value]', '{', '}',        ''],
+    ['{a:"b",c:"d"}', '"', '"',      'b'],
+  ],
+  'common.escapeRegExp': [
+    ['/path/to/res?search=this.that&a=b', '\\\\/path\\\\/to\\\\/res\\\\?search=this\\\\.that&a=b'],
+    ['/path/to/res?search=this.that',         '\\\\/path\\\\/to\\\\/res\\\\?search=this\\\\.that'],
+    ['/path/to/res?search',                                 '\\\\/path\\\\/to\\\\/res\\\\?search'],
+    ['/path/to/res',                                                   '\\\\/path\\\\/to\\\\/res'],
+    ['/path',                                                                         '\\\\/path'],
+  ],
+  'common.addTrailingSlash': [
+    ['/path',   '/path/'],
+    ['/path/',  '/path/'],
+    ['/',            '/'],
+    ['',             '/'],
+  ],
+  'common.stripTrailingSlash': [
+    ['/path',   '/path'],
+    ['/path/',  '/path'],
+    ['/',            ''],
+    ['',             ''],
+  ],
+  'common.dirname': [
+    ['/path/dir/',   '/path/'],
+    ['/path/dir',    '/path/'],
+    ['/path/',            '/'],
+    ['/path',             '/'],
+    ['/',                 '/'],
+    ['',                 './'],
   ],
 });

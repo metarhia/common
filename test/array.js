@@ -28,5 +28,11 @@ api.metatests.case('Common / array', {
     [[40,, 45],        [40, 41, 42, 43, 44, 45]],
     [[40, [6]],        [40, 41, 42, 43, 44, 45]],
     [[40, [-3]], 6,                [40, 41, 42]],
-  ]
+  ],
+  'common.shuffle': [
+    [[1, 2, 3],   (result) => (JSON.stringify(result.sort()) === '[1,2,3]')  ],
+    [['a', 'b'],  (result) => (JSON.stringify(result.sort()) === '["a","b"]')],
+    [[1, 'a', 3], (result) => (JSON.stringify(result.sort()) === '[1,3,"a"]')],
+    [[],          (result) => (JSON.stringify(result.sort()) === '[]')       ],
+  ],
 });
