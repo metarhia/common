@@ -17,34 +17,17 @@ api.metatests.case('Metarhia common library', {
     ['All you need is JavaScript', 'JavaScript',   ['All you need is ', '']],
     ['All you need is JavaScript', 'All',   ['', ' you need is JavaScript']],
     ['All you need is JavaScript', 'a', ['All you need is J',   'vaScript']],
-  ]
-});
-
-
-api.metatests.test('split', (test) => {
-  const s = 'a,b,c,d';
-  const result = api.common.split(s, ',', 2);
-  test.strictSame(result, ['a', 'b']);
-  test.end();
-});
-
-api.metatests.test('split all', (test) => {
-  const s = 'a,b,c,d';
-  const result = api.common.split(s);
-  test.strictSame(result, ['a', 'b', 'c', 'd']);
-  test.end();
-});
-
-api.metatests.test('rsplit', (test) => {
-  const s = 'a,b,c,d';
-  const result = api.common.rsplit(s, ',', 2);
-  test.strictSame(result, ['c', 'd']);
-  test.end();
-});
-
-api.metatests.test('rsplit all', (test) => {
-  const s = 'a,b,c,d';
-  const result = api.common.rsplit(s);
-  test.strictSame(result, ['a', 'b', 'c', 'd']);
-  test.end();
+  ],
+  'common.split': [
+    ['a,b,c,d', ',', 2,              ['a', 'b']],
+    ['a,b,c,d',            ['a', 'b', 'c', 'd']],
+    ['a;b;c;d', ';',       ['a', 'b', 'c', 'd']],
+    ['a,b,c,d', ';',                ['a,b,c,d']],
+  ],
+  'common.rsplit': [
+    ['a,b,c,d', ',', 2,              ['c', 'd']],
+    ['a,b,c,d',            ['a', 'b', 'c', 'd']],
+    ['a;b;c;d', ';',       ['a', 'b', 'c', 'd']],
+    ['a,b,c,d', ';',                ['a,b,c,d']],
+  ],
 });
