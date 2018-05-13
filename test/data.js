@@ -4,18 +4,18 @@
 
 api.metatests.case('Common / data types', {
   'common.isScalar': [
-    [0,         true ],
-    ['value1',  true ],
-    [50,        true ],
-    [true,      true ],
-    [false,     true ],
+    [0,          true],
+    ['value1',   true],
+    [50,         true],
+    [true,       true],
+    [false,      true],
     [null,      false],
-    [undefined, true ],
-    [NaN,       true ],
-    [Infinity,  true ],
+    [undefined,  true],
+    [NaN,        true],
+    [Infinity,   true],
     [[],        false],
     [{},        false],
-    ['',        true ],
+    ['',         true],
   ],
   'common.copy': [
     [[1, 2, 3],         [1, 2, 3]],

@@ -15,7 +15,7 @@ api.metatests.case('Common / network', {
   'common.parseHost': [
     ['',   'no-host-name-in-http-headers'],
     ['domain.com',           'domain.com'],
-    ['localhost',            'localhost' ],
+    ['localhost',             'localhost'],
     ['domain.com:8080',      'domain.com'],
     ['localhost:8080',        'localhost'],
   ],
