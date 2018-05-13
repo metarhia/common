@@ -16,6 +16,19 @@ api.metatests.case('Common / id', {
     [config, 'WRONG-STRING',                                                     false],
     [config, '',                                                                 false],
   ],
+  'common.generateSID': [
+    [config, (result) => (result.length === 64)],
+  ],
+  'common.crcSID': [
+    [
+      config,
+      api.common.generateKey(
+        config.length - 4,
+        config.characters
+      ),
+      (result)  => (result.length === 4)
+    ]
+  ],
 });
 
 api.metatests.test('generateStorageKey', (test) => {

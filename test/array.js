@@ -21,6 +21,7 @@ api.metatests.case('Common / array', {
     [5, 1,                 []],
     [1, 0,                 []],
     [1, 1,                [1]],
+    [8, 9,             [8, 9]],
   ],
   'common.sequence': [
     [[80, 81, 82],                 [80, 81, 82]],

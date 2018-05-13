@@ -19,4 +19,7 @@ api.metatests.case('Common / network', {
     ['domain.com:8080',      'domain.com'],
     ['localhost:8080',        'localhost'],
   ],
+  'common.localIPs': [
+    [[], (value) => Array.isArray(value)],
+  ],
 });
