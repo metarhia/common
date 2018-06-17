@@ -1,22 +1,22 @@
 'use strict';
 
 const submodules = [
-  'utilities', // Common utilities
-  'math', // Math common function
-  'array', // Arrays manipulations
-  'data', // Data structures manipulations
-  'strings', // Strings utilities
-  'time', // Data and Time functions
-  'fp', // Functional programming
-  'oop', // Object-oriented programming
-  'callbacks', // Callback utilities
-  'events', // Events and emitter
-  'units', // Units conversion
-  'network', // Network utilities
-  'id', // Kyes and identifiers
-  'sort', // Sort compare functions
-  'cache', // Cache (enhanced Map)
-  'mp', // Metaprogramming
-].map(path => './lib/' + path).map(require);
+  require('./lib/utilities'), // Common utilities
+  require('./lib/math'), // Math common function
+  require('./lib/array'), // Arrays manipulations
+  require('./lib/data'), // Data structures manipulations
+  require('./lib/strings'), // Strings utilities
+  require('./lib/time'), // Data and Time functions
+  require('./lib/fp'), // Functional programming
+  require('./lib/oop'), // Object-oriented programming
+  require('./lib/callbacks'), // Callback utilities
+  require('./lib/events'), // Events and emitter
+  require('./lib/units'), // Units conversion
+  require('./lib/network'), // Network utilities
+  require('./lib/id'), // Kyes and identifiers
+  require('./lib/sort'), // Sort compare functions
+  require('./lib/cache'), // Cache (enhanced Map)
+  require('./lib/mp'), // Metaprogramming
+];
 
 module.exports = Object.assign({}, ...submodules);
