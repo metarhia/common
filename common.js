@@ -13,7 +13,7 @@ const submodules = [
   require('./lib/events'), // Events and emitter
   require('./lib/units'), // Units conversion
   require('./lib/network'), // Network utilities
-  require('./lib/id'), // Kyes and identifiers
+  require('./lib/id'), // Keys and identifiers
   require('./lib/sort'), // Sort compare functions
   require('./lib/cache'), // Cache (enhanced Map)
   require('./lib/mp'), // Metaprogramming
