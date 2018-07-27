@@ -19,7 +19,6 @@ api.metatests.test('Enum with key/value', (test) => {
   });
 
   test.strictSame(typeof(Month), 'function');
-  test.strictSame(Month.name, 'Enum');
   test.strictSame(typeof(Month.collection), 'object');
   test.strictSame(Array.isArray(Month.collection), false);
 
@@ -45,7 +44,6 @@ api.metatests.test('Enum string keys', (test) => {
   );
 
   test.strictSame(typeof(Month), 'function');
-  test.strictSame(Month.name, 'Enum');
   test.strictSame(typeof(Month.collection), 'object');
   test.strictSame(Array.isArray(Month.collection), false);
 
@@ -82,7 +80,6 @@ api.metatests.test('Enum string keys', (test) => {
   });
 
   test.strictSame(typeof(Month), 'function');
-  test.strictSame(Month.name, 'Enum');
   test.strictSame(typeof(Month.collection), 'object');
   test.strictSame(Array.isArray(Month.collection), false);
 
@@ -114,7 +111,6 @@ api.metatests.test('Enum string keys', (test) => {
   const unknown = new Hundreds('Hello');
 
   test.strictSame(typeof(Hundreds), 'function');
-  test.strictSame(Hundreds.name, 'Enum');
   test.strictSame(typeof(Hundreds.collection), 'object');
   test.strictSame(Array.isArray(Hundreds.collection), true);
   test.strictSame(Hundreds.collection.length, 5);
