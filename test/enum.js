@@ -27,7 +27,6 @@ api.metatests.test('Enum with key/value', (test) => {
 
   const may = new Month('May');
   test.strictSame(typeof(may), 'object');
-  test.strictSame(may.constructor.name, 'Enum');
   test.strictSame(Month.has('May'), true);
   test.strictSame(may.value, 'May');
 
@@ -53,7 +52,6 @@ api.metatests.test('Enum string keys', (test) => {
 
   const may = new Month('May');
   test.strictSame(typeof(may), 'object');
-  test.strictSame(may.constructor.name, 'Enum');
   test.strictSame(Month.has('May'), true);
   test.strictSame(may.value, '4');
 
@@ -89,7 +87,6 @@ api.metatests.test('Enum string keys', (test) => {
 
   const may = new Month('May');
   test.strictSame(typeof(may), 'object');
-  test.strictSame(may.constructor.name, 'Enum');
   test.strictSame(Month.has('May'), true);
   test.strictSame(may.value, '5');
 
