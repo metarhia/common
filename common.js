@@ -18,6 +18,7 @@ const submodules = [
   'cache', // Cache (enhanced Map)
   'mp', // Metaprogramming
   'enum', // Enumerated type
+  'b-tree', // B-Tree for indexes in DB
 ].map(path => './lib/' + path).map(require);
 
 module.exports = Object.assign({}, ...submodules);
