@@ -21,6 +21,7 @@ const submodules = [
   'enum', // Enumerated type
   'iterator', // Iterator
   'uint64', // Uint64
+  'btree', // B-Tree for indexes in DB
 ].map(path => require('./lib/' + path));
 
 module.exports = Object.assign({}, ...submodules);
