@@ -78,3 +78,185 @@ api.metatests.test('generateStorageKey', (test) => {
   test.strictSame(key.join('/').length, 14);
   test.end();
 });
+
+api.metatests.test('Id.constructor', test => {
+  const tests = [
+    [0, 0],
+    [1, 1],
+    [30, 30],
+    [9007199254740991,
+      9007199254740991],
+    ['', 0],
+    ['0', 0],
+    ['1', 1],
+    ['10q', 10],
+    ['30', 30],
+    ['9007199254740991',
+      9007199254740991],
+    [[], 0],
+    [[1], 1],
+    [[1, 2], 1],
+    [[''], 0],
+    [['1'], 0],
+    [['qwe'], 0],
+    [new Uint32Array(), 0],
+    [new Uint32Array(1), 0],
+    [new Uint32Array(2), 0],
+    [new Uint32Array([]), 0],
+    [new Uint32Array([1]), 1],
+    [new Uint32Array([1, 2]), 1],
+    [null, 0],
+    [undefined, 0]
+  ];
+  let i;
+  for (i = 0; i < tests.length; i++) {
+    test.strictSame((new api.common.Id(tests[i][0])).toNumber(), tests[i][1]);
+  }
+  test.end();
+});
+
+api.metatests.test('Id.set', (test) => {
+  const tests = [
+    [0, 0],
+    [1, 1],
+    [30, 30],
+    [9007199254740991,
+      9007199254740991],
+    ['', 0],
+    ['0', 0],
+    ['1', 1],
+    ['10q', 10],
+    ['30', 30],
+    ['9007199254740991',
+      9007199254740991],
+    [[], 0],
+    [[1], 1],
+    [[1, 2], 1],
+    [[''], 0],
+    [['1'], 0],
+    [['qwe'], 0],
+    [new Uint32Array(), 0],
+    [new Uint32Array(1), 0],
+    [new Uint32Array(2), 0],
+    [new Uint32Array([]), 0],
+    [new Uint32Array([1]), 1],
+    [new Uint32Array([1, 2]), 1],
+    [null, 0],
+    [undefined, 0]
+  ];
+  const id = new api.common.Id();
+  let i;
+  for (i = 0; i < tests.length; i++) {
+    test.strictSame(id.set(tests[i][0]), tests[i][1]);
+  }
+  test.end();
+});
+
+api.metatests.test('Id.next', (test) => {
+  const tests = [
+    0,
+    1,
+    30,
+    123456789,
+    123456789123,
+    9007199254740991
+  ];
+  let i, id;
+  for (i = 0; i < tests.length; i++) {
+    id = new api.common.Id(tests[i]);
+    test.strictSame(id.next(), tests[i] + 1);
+  }
+  test.end();
+});
+
+api.metatests.test('Id.toChunks', (test) => {
+  const tests = [
+    [0,                ['0000', '0000']],
+    [1,                ['0001', '0000']],
+    [30,               ['001e', '0000']],
+    [123456789,        ['cd15', '075b']],
+    [123456789123,     ['1a83', 'be99', '001c']],
+    [9007199254740991, ['ffff', 'ffff', 'ffff', '001f']]
+  ];
+  const id = new api.common.Id();
+  let i;
+  for (i = 0; i < tests.length; i++) {
+    id.set(tests[i][0]);
+    test.strictSame(id.toChunks(), tests[i][1]);
+  }
+  test.end();
+});
+
+api.metatests.test('Id.toPath', (test) => {
+  const tests = [
+    [0,                '0000/0000'],
+    [1,                '0001/0000'],
+    [30,               '001e/0000'],
+    [123456789,        'cd15/075b'],
+    [123456789123,     '1a83/be99/001c'],
+    [9007199254740991, 'ffff/ffff/ffff/001f']
+  ];
+  const id = new api.common.Id();
+  let i;
+  for (i = 0; i < tests.length; i++) {
+    id.set(tests[i][0]);
+    test.strictSame(id.toPath(), tests[i][1]);
+  }
+  test.end();
+});
+
+api.metatests.test('Id.toNumber', (test) => {
+  const tests = [
+    0,
+    1,
+    30,
+    123456789,
+    123456789123,
+    9007199254740991
+  ];
+  const id = new api.common.Id();
+  let i;
+  for (i = 0; i < tests.length; i++) {
+    id.set(tests[i]);
+    test.strictSame(id.toNumber(), tests[i]);
+  }
+  test.end();
+});
+
+api.metatests.test('Id.toString', (test) => {
+  const tests = [
+    [0,                '0'],
+    [1,                '1'],
+    [30,               '30'],
+    [123456789,        '123456789'],
+    [123456789123,     '123456789123'],
+    [9007199254740991, '9007199254740991']
+  ];
+  const id = new api.common.Id();
+  let i;
+  for (i = 0; i < tests.length; i++) {
+    id.set(tests[i][0]);
+    test.strictSame(id.toString(), tests[i][1]);
+  }
+  test.end();
+});
+
+api.metatests.test('Id Symbol.toPrimitive', (test) => {
+  const tests = [
+    [0,                '0'],
+    [1,                '1'],
+    [30,               '30'],
+    [123456789,        '123456789'],
+    [123456789123,     '123456789123'],
+    [9007199254740991, '9007199254740991']
+  ];
+  const id = new api.common.Id();
+  let i;
+  for (i = 0; i < tests.length; i++) {
+    id.set(tests[i][0]);
+    test.strictSame(`${id}`, tests[i][1]);
+    test.strictSame(+id, tests[i][0]);
+  }
+  test.end();
+});
+
