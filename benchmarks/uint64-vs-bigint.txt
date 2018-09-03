@@ -1,0 +1,35 @@
+Here comparing old = bigint and new = uint64, therefore improvement relates the
+difference between old(bigint) and new(uint64).
+
+Comparison was done with uint64-vs-bigint-mod.csv (it has 'kind' value removed
+from options and put as 'binary') and node/benchmarks/compare.R with this patch
+
+@ compare.R:55 @ confidence.interval = function (shared.se, old.mu, w, risk) {
+
+ # Print a table with results
+ statistics = ddply(dat, "name", function(subdat) {
+-  old.rate = subset(subdat, binary == "old")$rate;
+-  new.rate = subset(subdat, binary == "new")$rate;
++  old.rate = subset(subdat, binary == "bigint")$rate;
++  new.rate = subset(subdat, binary == "uint64")$rate;
+
+--------------------------------------------------------------------------------
+                                                                                              confidence improvement accuracy (*)   (**)  (***)
+tempBench/uint64-vs-bigint.js val='0: 0x123ff, 0xab' op='and' n=3000000                              ***    -89.27 %       ±2.60% ±3.49% ±4.60%
+tempBench/uint64-vs-bigint.js val='0: 0x123ff, 0xab' op='dec' n=3000000                              ***    -89.27 %       ±2.78% ±3.73% ±4.91%
+tempBench/uint64-vs-bigint.js val='0: 0x123ff, 0xab' op='div' n=3000000                              ***    -97.29 %       ±2.47% ±3.32% ±4.37%
+tempBench/uint64-vs-bigint.js val='0: 0x123ff, 0xab' op='inc' n=3000000                              ***    -88.55 %       ±2.76% ±3.70% ±4.88%
+tempBench/uint64-vs-bigint.js val='0: 0x123ff, 0xab' op='mul' n=3000000                              ***    -97.47 %       ±2.35% ±3.16% ±4.16%
+tempBench/uint64-vs-bigint.js val='0: 0x123ff, 0xab' op='xor' n=3000000                              ***    -88.24 %       ±3.38% ±4.54% ±5.99%
+tempBench/uint64-vs-bigint.js val='1: 0xffffffffff, 0xffff' op='and' n=3000000                       ***    -89.06 %       ±2.69% ±3.61% ±4.76%
+tempBench/uint64-vs-bigint.js val='1: 0xffffffffff, 0xffff' op='dec' n=3000000                       ***    -89.58 %       ±2.65% ±3.56% ±4.69%
+tempBench/uint64-vs-bigint.js val='1: 0xffffffffff, 0xffff' op='div' n=3000000                       ***    -97.20 %       ±2.53% ±3.39% ±4.47%
+tempBench/uint64-vs-bigint.js val='1: 0xffffffffff, 0xffff' op='inc' n=3000000                       ***    -88.61 %       ±3.54% ±4.75% ±6.26%
+tempBench/uint64-vs-bigint.js val='1: 0xffffffffff, 0xffff' op='mul' n=3000000                       ***    -99.10 %       ±2.81% ±3.76% ±4.96%
+tempBench/uint64-vs-bigint.js val='1: 0xffffffffff, 0xffff' op='xor' n=3000000                       ***    -88.49 %       ±4.08% ±5.47% ±7.22%
+tempBench/uint64-vs-bigint.js val='2: 0xffffeeee00ff11, 0x3ffffeeee00ff11' op='and' n=3000000        ***    -88.70 %       ±3.48% ±4.67% ±6.15%
+tempBench/uint64-vs-bigint.js val='2: 0xffffeeee00ff11, 0x3ffffeeee00ff11' op='dec' n=3000000        ***    -89.41 %       ±2.08% ±2.80% ±3.68%
+tempBench/uint64-vs-bigint.js val='2: 0xffffeeee00ff11, 0x3ffffeeee00ff11' op='div' n=3000000        ***    -94.38 %       ±2.92% ±3.92% ±5.16%
+tempBench/uint64-vs-bigint.js val='2: 0xffffeeee00ff11, 0x3ffffeeee00ff11' op='inc' n=3000000        ***    -88.32 %       ±3.33% ±4.47% ±5.89%
+tempBench/uint64-vs-bigint.js val='2: 0xffffeeee00ff11, 0x3ffffeeee00ff11' op='mul' n=3000000        ***    -99.65 %       ±3.90% ±5.24% ±6.91%
+tempBench/uint64-vs-bigint.js val='2: 0xffffeeee00ff11, 0x3ffffeeee00ff11' op='xor' n=3000000        ***    -87.72 %       ±4.85% ±6.51% ±8.58%
