@@ -21,7 +21,6 @@ metatests.test('basic set', (test) => {
 
   bTree.set(30,  { city: 'Ankara'     });
   bTree.set(50,  { city: 'Jerusalem'  });
-
   test.strictSame(bTree.root.length, 4);
   test.strictSame(bTree.root[0].key, 30);
   test.strictSame(bTree.root[0].data, { city: 'Ankara' });
@@ -130,7 +129,7 @@ metatests.test('get / string keys', (test) => {
   const bTree = new BTree(3);
 
   bTree
-    .set('Abuabi',     { country: 'UAE'  })
+    .set('Abu Dhabi',  { country: 'UAE'  })
     .set('Ankara',     { country: 'Turkey'     })
     .set('Jerusalem',  { country: 'Israel'  })
     .set('Seoul',      { country: 'South Korea'      })
@@ -140,7 +139,7 @@ metatests.test('get / string keys', (test) => {
     .set('Oslo',       { country: 'Norway'       })
     .set('Stockholm',  { country: 'Sweden'  });
 
-  test.strictSame(bTree.get('Abuabi'),    { country: 'UAE'     });
+  test.strictSame(bTree.get('Abu Dhabi'), { country: 'UAE'     });
   test.strictSame(bTree.get('Ankara'),    { country: 'Turkey'  });
   test.strictSame(bTree.get('Kiev'),      { country: 'Ukraine' });
   test.strictSame(bTree.get('Minsk'),     { country: 'Belarus' });
@@ -188,10 +187,10 @@ metatests.test('iterator / numer key', (test) => {
   test.strictSame(res, '');
 
   res = [...bTree.iterator(20, 50)].join('');
-  test.strictSame(res, 'EFGH');
+  test.strictSame(res, 'DEFGH');
 
   res = [...bTree.iterator(100, 1000)].join('');
-  test.strictSame(res, 'PQR');
+  test.strictSame(res, 'OPQR');
 
   res = [...bTree.iterator(10, 99)].join('');
   test.strictSame(res, 'BCDEFGHIJKLMN');
@@ -208,7 +207,7 @@ metatests.test('iterator / string keys', (test) => {
   const bTree = new BTree();
 
   bTree
-    .set('Abuabi',     1)
+    .set('Abu Dhabi',  1)
     .set('Ankara',     2)
     .set('Jerusalem',  3)
     .set('Seoul',      8)
@@ -221,8 +220,8 @@ metatests.test('iterator / string keys', (test) => {
   let res = [...bTree.iterator('A', 'C')];
   test.strictSame(res, [1, 2]);
 
-  res = [...bTree.iterator('Abudabi', 'C')];
-  test.strictSame(res, [2]);
+  res = [...bTree.iterator('Abu Dhabi', 'C')];
+  test.strictSame(res, [1, 2]);
 
   res = [...bTree.iterator('D', 'Z')];
   test.strictSame(res, [3, 4, 5, 6, 7, 8, 9]);
@@ -231,7 +230,7 @@ metatests.test('iterator / string keys', (test) => {
   test.strictSame(res, [1, 2, 3, 4, 5, 6, 7, 8, 9]);
 
   res = [...bTree.iterator('Oslo')];
-  test.strictSame(res, [8, 9]);
+  test.strictSame(res, [7, 8, 9]);
   test.end();
 });
 
