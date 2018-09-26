@@ -282,7 +282,7 @@ metatests.test('remove', (test) => {
   bTree.remove(30);
   bTree.remove(20);
   bTree.remove(110);
-  // Now bTree is emty
+  // Now bTree is empty
   test.strictSame(bTree.root.length, 1);
   test.strictSame(bTree.root[0].key, undefined);
   test.strictSame(bTree.root[0].child, null);
