@@ -66,3 +66,20 @@ metatests.testSync('multiple curry of sum(x, y, z)', (test) => {
   test.strictSame(addTwoThree(10), 15);
   test.strictSame(addTwoThree(20), 25);
 });
+
+metatests.testSync('curry of identity', (test) => {
+  const id = x => x;
+  const idCurry = common.curry(id);
+  test.strictSame(idCurry(10), 10);
+  test.strictSame(idCurry(20), 20);
+
+  test.strictSame(common.curry(id, 10), 10);
+});
+
+metatests.testSync('curry of unit', (test) => {
+  const unit = () => 42;
+  const unitCurry = common.curry(unit);
+  test.strictSame(unitCurry(), 42);
+  test.strictSame(unitCurry(10), 42);
+  test.strictSame(common.curry(unit, 10), 42);
+});
