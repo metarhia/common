@@ -80,6 +80,16 @@ metatests.testSync('curry of unit', (test) => {
   const unit = () => 42;
   const unitCurry = common.curry(unit);
   test.strictSame(unitCurry(), 42);
-  test.strictSame(unitCurry(10), 42);
-  test.strictSame(common.curry(unit, 10), 42);
+});
+
+metatests.testSync('reduntant args must be ignored', (test) => {
+  const add = (x, y) => x + y;
+  const addCurry = common.curry(add);
+  test.strictSame(addCurry(1, 2, 4), 3);
+  test.strictSame(common.curry(add, 1, 2, 4), 3);
+
+  const sum = (x, y, z) => x + y + z;
+  const sumCurry = common.curry(sum);
+  test.strictSame(sumCurry(1, 2, 3, 4, 5), 6);
+  test.strictSame(common.curry(sum, 1, 2, 3, 4, 5), 6);
 });
