@@ -18,14 +18,3 @@ metatests.test('async identify function', test => {
 
   common.asyncId({ data: 10 }, cb);
 });
-
-metatests.test('mapable object identify function', test => {
-  const arr = [1, 20, 300];
-  const cb = (err, data) => {
-    test.error(err);
-    test.strictSame(data, [1, 20, 300]);
-    test.end();
-  };
-
-  common.mapIterationId(arr, () => {}, cb);
-});
