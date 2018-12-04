@@ -39,7 +39,7 @@ Returns: array of objects
 
 Returns: object or array
 
-### Duplicate object ot array
+### Duplicate object or array
 `common.duplucate(obj)`
 - `obj:object or array`
 
