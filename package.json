@@ -29,8 +29,8 @@
   ],
   "scripts": {
     "test": "eslint . && metatests test/",
-    "lint": "eslint . && prettier --debug-check \"**/*.js\" \"**/*.json\" \"**/*.md\" .eslintrc .prettierrc",
-    "fmt": "prettier --write \"**/*.js\" \"**/*.json\" \"**/*.md\" .eslintrc .prettierrc",
+    "lint": "eslint . && prettier -c \"**/*.js\" \"**/*.json\" \"**/*.md\" \".*rc\"",
+    "fmt": "prettier --write \"**/*.js\" \"**/*.json\" \"**/*.md\" \".*rc\"",
     "docs": "metaschema ./common.js",
     "build": "babel common.js -d dist && babel lib -d dist/lib",
     "prepublish": "npm run -s build"
@@ -50,6 +50,6 @@
     "metaschema": "0.0.28",
     "metasync": "^0.3.31",
     "metatests": "^0.3.0",
-    "prettier": "1.15.3"
+    "prettier": "1.16.x"
   }
 }
