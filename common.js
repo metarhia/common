@@ -20,6 +20,7 @@ const submodules = [
   'network', // Network utilities
   'oop', // Object-oriented programming
   'pool', // Object pool
+  'fs', // file system utilities
   'sort', // Sort compare functions
   'strings', // Strings utilities
   'time', // Date and Time functions
