@@ -25,6 +25,7 @@ const submodules = [
   'uint64', // Uint64
   'units', // Units conversion
   'utilities', // Common utilities
+  'version', // Version compare and compatibility check
 ].map(path => require('./lib/' + path));
 
 module.exports = Object.assign({}, ...submodules);
