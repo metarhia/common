@@ -1,0 +1,9 @@
+{
+  "headerFile": "doc/header.md",
+  "footerFile": "doc/footer.md",
+  "files": ["common.js"],
+  "customLinks": {
+    "EventEmitter": "https://nodejs.org/api/events.html#events_class_eventemitter"
+  },
+  "outputFile": "README.md"
+}
