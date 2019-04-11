@@ -57,7 +57,7 @@ _Result:_
 [1, 2, 3, 4, 5];
 ```
 
-#### sequence(seq[, max])
+#### sequence(seq\[, max\])
 
 - `seq`: [`<Array>`][array]
 - `max`: [`<number>`][number] (optional), max
@@ -132,7 +132,7 @@ _Returns:_ [`<number>`][number] new value of arr.length
 
 Push single value multiple times
 
-#### checkLogin(login, required[, optional])
+#### checkLogin(login, required\[, optional\])
 
 - `login`: [`<string>`][string] login to test
 - `required`: [`<Array>`][array] required tests configs
@@ -142,7 +142,7 @@ _Returns:_ `<AuthenticationStrength>`
 
 Function that tests the login
 
-#### checkPassword(password, required[, optional])
+#### checkPassword(password, required\[, optional\])
 
 - `password`: [`<string>`][string] password to test
 - `required`: [`<Array>`][array] required tests configs
@@ -152,7 +152,7 @@ _Returns:_ `<AuthenticationStrength>`
 
 Function that tests the password
 
-#### checkLoginPassword(login, password, required[, optional])
+#### checkLoginPassword(login, password, required\[, optional\])
 
 - `login`: [`<string>`][string] login to test
 - `password`: [`<string>`][string] password to test
@@ -165,15 +165,15 @@ Function that tests the login with password
 
 #### class BTree
 
-#### BTree.prototype.constructor(degree = DEFAULT\_DEGREE)
+##### BTree.prototype.constructor(degree = DEFAULT\_DEGREE)
 
-#### BTree.prototype.get(key)
+##### BTree.prototype.get(key)
 
-#### BTree.prototype.set(key, data)
+##### BTree.prototype.set(key, data)
 
-#### BTree.prototype.iterator(start, finish)
+##### BTree.prototype.iterator(start, finish)
 
-#### BTree.prototype.remove(key)
+##### BTree.prototype.remove(key)
 
 #### cache()
 
@@ -183,24 +183,24 @@ Create Cache, enhanced Map
 
 #### class Cache
 
-#### Cache.super\_()
+##### Cache.super\_()
 
-#### Cache.prototype.constructor()
+##### Cache.prototype.constructor()
 
-#### Cache.prototype.add(key, val)
+##### Cache.prototype.add(key, val)
 
 - `key`: [`<string>`][string] key
 - `val`: `<any>` associated value
 
 Add key-value pair to cache
 
-#### Cache.prototype.del(key)
+##### Cache.prototype.del(key)
 
 - `key`: [`<string>`][string] key
 
 Delete cache element
 
-#### Cache.prototype.clr(prefix[, fn])
+##### Cache.prototype.clr(prefix\[, fn\])
 
 - `prefix`: [`<string>`][string] to compare with beginning of the key
 - `fn`: [`<Function>`][function] (optional)
@@ -238,7 +238,7 @@ Empty asynchronous callback-last single-argument function
 
 Empty asynchronous callback-last double-argument function
 
-#### once([fn])
+#### once(\[fn\])
 
 - `fn`: [`<Function>`][function] (optional)
 
@@ -408,13 +408,13 @@ Merge multiple objects with merger
 
 #### class Enum
 
-#### Enum.from(...args)
+##### Enum.from(...args)
 
-#### Enum.NaE()
+##### Enum.NaE()
 
-#### Enum.prototype.constructor(...args)
+##### Enum.prototype.constructor(...args)
 
-#### forwardEvents(from, to[, events])
+#### forwardEvents(from, to\[, events\])
 
 - `from`: [`<EventEmitter>`][eventemitter] to listen for event
 - `to`: [`<EventEmitter>`][eventemitter] to emit event on
@@ -457,17 +457,17 @@ with wildcard and forward method
 
 #### class EnhancedEmitter
 
-#### EnhancedEmitter.super\_()
+##### EnhancedEmitter.super\_()
 
-#### EnhancedEmitter.prototype.constructor()
+##### EnhancedEmitter.prototype.constructor()
 
-#### EnhancedEmitter.prototype.emit(...args)
+##### EnhancedEmitter.prototype.emit(...args)
 
 - `args`: [`<Array>`][array] arguments to be passed
 
 Call listener with provided arguments
 
-#### EnhancedEmitter.prototype.forward(to, events)
+##### EnhancedEmitter.prototype.forward(to, events)
 
 - `to`: [`<EventEmitter>`][eventemitter] to emit event on
 - `events`: [`<string>`][string]|[`<Object>`][object]|[`<string[]>`][string]
@@ -477,9 +477,9 @@ Forward events from one EventEmitter to another
 
 #### class Flags
 
-#### Flags.from(...args)
+##### Flags.from(...args)
 
-#### Flags.prototype.constructor(...args)
+##### Flags.prototype.constructor(...args)
 
 #### partial(fn, ...args)
 
@@ -511,7 +511,7 @@ _Returns:_ [`<Function>`][function] function(...args), composed
 
 Compose multiple functions into one
 
-#### maybe(fn, defVal[, value])
+#### maybe(fn, defVal\[, value\])
 
 - `fn`: [`<Function>`][function]
 - `defVal`: `<any>` default value
@@ -763,79 +763,79 @@ Convert file path to id
 
 #### class Int64
 
-#### Int64.zero()
+##### Int64.zero()
 
-#### Int64.one()
+##### Int64.one()
 
-#### Int64.\_conversion(value)
+##### Int64.\_conversion(value)
 
 Convert signed to 2's complement representation and vise versa
 
-#### Int64.add(a, b)
+##### Int64.add(a, b)
 
-#### Int64.sub(a, b)
+##### Int64.sub(a, b)
 
-#### Int64.cmp(a, b)
+##### Int64.cmp(a, b)
 
-#### Int64.\_division(n, d)
+##### Int64.\_division(n, d)
 
-#### Int64.div(a, b)
+##### Int64.div(a, b)
 
-#### Int64.mod(a, b)
+##### Int64.mod(a, b)
 
-#### Int64.mult(a, b)
+##### Int64.mult(a, b)
 
-#### Int64.and(a, b)
+##### Int64.and(a, b)
 
-#### Int64.or(a, b)
+##### Int64.or(a, b)
 
-#### Int64.not(a)
+##### Int64.not(a)
 
-#### Int64.xor(a, b)
+##### Int64.xor(a, b)
 
-#### Int64.shiftRight(a, b)
+##### Int64.shiftRight(a, b)
 
-#### Int64.shiftLeft(a, b)
+##### Int64.shiftLeft(a, b)
 
-#### Int64.prototype.constructor(value)
+##### Int64.prototype.constructor(value)
 
-#### Int64.prototype.toInt32()
+##### Int64.prototype.toInt32()
 
-#### Int64.prototype.toUint32()
+##### Int64.prototype.toUint32()
 
-#### Int64.prototype.add(b)
+##### Int64.prototype.add(b)
 
-#### Int64.prototype.sub(b)
+##### Int64.prototype.sub(b)
 
-#### Int64.prototype.and(b)
+##### Int64.prototype.and(b)
 
-#### Int64.prototype.or(b)
+##### Int64.prototype.or(b)
 
-#### Int64.prototype.not()
+##### Int64.prototype.not()
 
-#### Int64.prototype.xor(b)
+##### Int64.prototype.xor(b)
 
-#### Int64.prototype.shiftRightLogical(b)
+##### Int64.prototype.shiftRightLogical(b)
 
-#### Int64.prototype.shiftRightArithmetic(b)
+##### Int64.prototype.shiftRightArithmetic(b)
 
-#### Int64.prototype.shiftRight(b)
+##### Int64.prototype.shiftRight(b)
 
-#### Int64.prototype.shiftLeft(b)
+##### Int64.prototype.shiftLeft(b)
 
-#### Int64.prototype.inc()
+##### Int64.prototype.inc()
 
-#### Int64.prototype.dec()
+##### Int64.prototype.dec()
 
-#### Int64.prototype.toString(radix = 10)
+##### Int64.prototype.toString(radix = 10)
 
-#### Int64.prototype.toJSON()
+##### Int64.prototype.toJSON()
 
-#### Int64.prototype.toPostgres()
+##### Int64.prototype.toPostgres()
 
 #### class Iterator
 
-#### Iterator.range(start, stop[, step])
+##### Iterator.range(start, stop\[, step\])
 
 - `start`: [`<number>`][number]
 - `stop`: [`<number>`][number]
@@ -845,55 +845,55 @@ _Returns:_ `<Iterator>`
 
 Create iterator iterating over the range
 
-#### Iterator.prototype.constructor(base)
+##### Iterator.prototype.constructor(base)
 
-#### Iterator.prototype.next()
+##### Iterator.prototype.next()
 
-#### Iterator.prototype.count()
+##### Iterator.prototype.count()
 
-#### Iterator.prototype.each(fn, thisArg)
+##### Iterator.prototype.each(fn, thisArg)
 
-#### Iterator.prototype.forEach(fn, thisArg)
+##### Iterator.prototype.forEach(fn, thisArg)
 
-#### Iterator.prototype.every(predicate, thisArg)
+##### Iterator.prototype.every(predicate, thisArg)
 
-#### Iterator.prototype.find(predicate, thisArg)
+##### Iterator.prototype.find(predicate, thisArg)
 
-#### Iterator.prototype.includes(element)
+##### Iterator.prototype.includes(element)
 
-#### Iterator.prototype.reduce(reducer, initialValue)
+##### Iterator.prototype.reduce(reducer, initialValue)
 
-#### Iterator.prototype.some(predicate, thisArg)
+##### Iterator.prototype.some(predicate, thisArg)
 
-#### Iterator.prototype.someCount(predicate, count, thisArg)
+##### Iterator.prototype.someCount(predicate, count, thisArg)
 
-#### Iterator.prototype.collectTo(CollectionClass)
+##### Iterator.prototype.collectTo(CollectionClass)
 
-#### Iterator.prototype.collectWith(obj, collector)
+##### Iterator.prototype.collectWith(obj, collector)
 
-#### Iterator.prototype.toArray()
+##### Iterator.prototype.toArray()
 
-#### Iterator.prototype.map(mapper, thisArg)
+##### Iterator.prototype.map(mapper, thisArg)
 
-#### Iterator.prototype.filter(predicate, thisArg)
+##### Iterator.prototype.filter(predicate, thisArg)
 
-#### Iterator.prototype.flat(depth = 1)
+##### Iterator.prototype.flat(depth = 1)
 
-#### Iterator.prototype.flatMap(mapper, thisArg)
+##### Iterator.prototype.flatMap(mapper, thisArg)
 
-#### Iterator.prototype.zip(...iterators)
+##### Iterator.prototype.zip(...iterators)
 
-#### Iterator.prototype.chain(...iterators)
+##### Iterator.prototype.chain(...iterators)
 
-#### Iterator.prototype.take(amount)
+##### Iterator.prototype.take(amount)
 
-#### Iterator.prototype.takeWhile(predicate, thisArg)
+##### Iterator.prototype.takeWhile(predicate, thisArg)
 
-#### Iterator.prototype.skip(amount)
+##### Iterator.prototype.skip(amount)
 
-#### Iterator.prototype.enumerate()
+##### Iterator.prototype.enumerate()
 
-#### Iterator.prototype.join(sep = ', ', prefix = '', suffix = '')
+##### Iterator.prototype.join(sep = ', ', prefix = '', suffix = '')
 
 #### iter(base)
 
@@ -942,7 +942,7 @@ List property names
 
 #### ip2int(...args)
 
-#### ipToInt([ip])
+#### ipToInt(\[ip\])
 
 - `ip`: [`<string>`][string] (optional), default: '127.0.0.1', IP address
 
@@ -984,11 +984,11 @@ Mixin for ES6 classes without overriding existing methods
 
 #### class Pool
 
-#### Pool.prototype.constructor(factory = null)
+##### Pool.prototype.constructor(factory = null)
 
-#### Pool.prototype.put(value)
+##### Pool.prototype.put(value)
 
-#### Pool.prototype.get()
+##### Pool.prototype.get()
 
 #### sortComparePriority(priority, s1, s2)
 
@@ -1237,7 +1237,7 @@ _Result:_
 ['All you need is Jav', 'Script'];
 ```
 
-#### split(s[, separator[, limit]])
+#### split(s\[, separator\[, limit\]\])
 
 - `s`: [`<string>`][string]
 - `separator`: [`<string>`][string] (optional), default: ','
@@ -1272,7 +1272,7 @@ _Result:_
 ['a', 'b'];
 ```
 
-#### rsplit(s[, separator[, limit]])
+#### rsplit(s\[, separator\[, limit\]\])
 
 - `s`: [`<string>`][string]
 - `separator`: [`<string>`][string] (optional), default: ','
@@ -1318,7 +1318,7 @@ _Example:_
 isTimeEqual(sinceTime, buffer.stats.mtime);
 ```
 
-#### nowDate([date])
+#### nowDate(\[date\])
 
 - `date`: [`<Date>`][date] (optional), default: `new Date()`
 
@@ -1326,7 +1326,7 @@ _Returns:_ [`<string>`][string]
 
 Get current date in YYYY-MM-DD format
 
-#### nowDateTime([date])
+#### nowDateTime(\[date\])
 
 - `date`: [`<Date>`][date] (optional), default: `new Date()`
 
@@ -1336,61 +1336,61 @@ Get current date in YYYY-MM-DD hh:mm format
 
 #### class Uint64
 
-#### Uint64.add(a, b)
+##### Uint64.add(a, b)
 
-#### Uint64.sub(a, b)
+##### Uint64.sub(a, b)
 
-#### Uint64.mult(a, b)
+##### Uint64.mult(a, b)
 
-#### Uint64.cmp(a, b)
+##### Uint64.cmp(a, b)
 
-#### Uint64.\_division(n, d)
+##### Uint64.\_division(n, d)
 
-#### Uint64.div(a, b)
+##### Uint64.div(a, b)
 
-#### Uint64.mod(a, b)
+##### Uint64.mod(a, b)
 
-#### Uint64.and(a, b)
+##### Uint64.and(a, b)
 
-#### Uint64.or(a, b)
+##### Uint64.or(a, b)
 
-#### Uint64.not(a)
+##### Uint64.not(a)
 
-#### Uint64.xor(a, b)
+##### Uint64.xor(a, b)
 
-#### Uint64.shiftRight(a, b)
+##### Uint64.shiftRight(a, b)
 
-#### Uint64.shiftLeft(a, b)
+##### Uint64.shiftLeft(a, b)
 
-#### Uint64.prototype.constructor(value)
+##### Uint64.prototype.constructor(value)
 
-#### Uint64.prototype.toUint32()
+##### Uint64.prototype.toUint32()
 
-#### Uint64.prototype.add(b)
+##### Uint64.prototype.add(b)
 
-#### Uint64.prototype.sub(b)
+##### Uint64.prototype.sub(b)
 
-#### Uint64.prototype.and(b)
+##### Uint64.prototype.and(b)
 
-#### Uint64.prototype.or(b)
+##### Uint64.prototype.or(b)
 
-#### Uint64.prototype.not()
+##### Uint64.prototype.not()
 
-#### Uint64.prototype.xor(b)
+##### Uint64.prototype.xor(b)
 
-#### Uint64.prototype.shiftRight(b)
+##### Uint64.prototype.shiftRight(b)
 
-#### Uint64.prototype.shiftLeft(b)
+##### Uint64.prototype.shiftLeft(b)
 
-#### Uint64.prototype.inc()
+##### Uint64.prototype.inc()
 
-#### Uint64.prototype.dec()
+##### Uint64.prototype.dec()
 
-#### Uint64.prototype.toString(radix = 10)
+##### Uint64.prototype.toString(radix = 10)
 
-#### Uint64.prototype.toJSON()
+##### Uint64.prototype.toJSON()
 
-#### Uint64.prototype.toPostgres()
+##### Uint64.prototype.toPostgres()
 
 #### duration(s)
 

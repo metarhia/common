@@ -1,6 +1,7 @@
 {
   "headerFile": "doc/header.md",
   "footerFile": "doc/footer.md",
+  "minHeaderLevel": 3,
   "files": ["common.js"],
   "customLinks": {
     "EventEmitter": "https://nodejs.org/api/events.html#events_class_eventemitter"
