@@ -22,3 +22,9 @@ function child(test, depth) {
   );
   test.strictSame(common.callerFilename(depth), 'utilities.js');
 }
+
+metatests.testSync('Check captureMaxStack', test => {
+  const stack = common.captureMaxStack();
+  test.assert(stack.length > 0);
+  test.type(stack, 'string');
+});
