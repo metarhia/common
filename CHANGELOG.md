@@ -62,6 +62,8 @@ and this project adheres to
 - Replaced ES5-style classes and inheritance with ES6 classes for `Cache` and
   `EnhancedEmitter`.
 - Signature of `merger()` in `mergeObjects()` to also contain the merging key.
+- Signature of `callerFilepath()` to allow passing RegExp as depth to be used
+  for filtering of stack frames.
 
 ### Removed
 
