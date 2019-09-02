@@ -1485,7 +1485,7 @@ Make function raise-safe
 
 ### callerFilename(depth = 0, stack = null)
 
-### callerFilepath(\[depth\[, stack\]\])
+### callerFilepath(depth = 0, stack = null)
 
 - `depth`: [`<number>`][number]|[`<RegExp>`][regexp] initial stack slice or
   filter regular expression, 0 by default.
