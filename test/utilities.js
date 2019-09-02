@@ -25,6 +25,6 @@ function child(test, depth) {
 
 metatests.testSync('Check captureMaxStack', test => {
   const stack = common.captureMaxStack();
-  test.assert(stack.length > 0);
-  test.type(stack, 'string');
+  test.log(stack);
+  test.assert(stack.match(/Error[: \w]*\n/), 'stack must match a regexp');
 });
