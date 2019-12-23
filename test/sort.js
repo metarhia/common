@@ -26,14 +26,13 @@ metatests.case(
   { common },
   {
     'common.sortComparePriority': [
-      [CONFIG_FILES_PRIORITY, 'files.js', 'sandbox.js', 1],
-      [CONFIG_FILES_PRIORITY, 'filestorage.js', 'routes.js', -1],
-      [CONFIG_FILES_PRIORITY, 'unknown.js', 'sandbox.js', 1],
-      [CONFIG_FILES_PRIORITY, 'log.js', 'sandbox.js', 1],
-      [CONFIG_FILES_PRIORITY, 'sandbox.js', 'sandbox.js', 0],
-      [CONFIG_FILES_PRIORITY, 'log.js', 'log.js', 0],
-      [CONFIG_FILES_PRIORITY, 'tasks.js', 'application.js', -1],
-      [CONFIG_FILES_PRIORITY, 'tasks.js', 'missing_file', -1],
+      [CONFIG_FILES_PRIORITY, res => res('files.js', 'sandbox.js') === 1],
+      [CONFIG_FILES_PRIORITY, res => res('filestorage.js', 'routes.js') === -1],
+      [CONFIG_FILES_PRIORITY, res => res('unknown.js', 'sandbox.js') === 1],
+      [CONFIG_FILES_PRIORITY, res => res('log.js', 'sandbox.js') === 1],
+      [CONFIG_FILES_PRIORITY, res => res('sandbox.js', 'sandbox.js') === 0],
+      [CONFIG_FILES_PRIORITY, res => res('log.js', 'log.js') === 0],
+      [CONFIG_FILES_PRIORITY, res => res('tasks.js', 'application.js') === -1],
     ],
     'common.sortCompareDirectories': [
       [{ name: '/abc' }, { name: 'abc.ext' }, -1],
