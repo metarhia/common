@@ -1260,7 +1260,7 @@ Compare for array.sort with priority
 _Example:_
 
 ```js
-files.sort(common.sortComparePriority);
+files.sort(common.sortComparePriority(priority));
 ```
 
 ### sortCompareDirectories(a, b)

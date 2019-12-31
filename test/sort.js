@@ -21,18 +21,24 @@ const CONFIG_FILES_PRIORITY = [
   'routes.js',
 ];
 
+const getTestSorting = config => (file1, file2, sortRes) => {
+  return [config, cb => cb(file1, file2) === sortRes];
+};
+const testSorting = getTestSorting(CONFIG_FILES_PRIORITY);
+
 metatests.case(
   'Common / sort',
   { common },
   {
     'common.sortComparePriority': [
-      [CONFIG_FILES_PRIORITY, res => res('files.js', 'sandbox.js') === 1],
-      [CONFIG_FILES_PRIORITY, res => res('filestorage.js', 'routes.js') === -1],
-      [CONFIG_FILES_PRIORITY, res => res('unknown.js', 'sandbox.js') === 1],
-      [CONFIG_FILES_PRIORITY, res => res('log.js', 'sandbox.js') === 1],
-      [CONFIG_FILES_PRIORITY, res => res('sandbox.js', 'sandbox.js') === 0],
-      [CONFIG_FILES_PRIORITY, res => res('log.js', 'log.js') === 0],
-      [CONFIG_FILES_PRIORITY, res => res('tasks.js', 'application.js') === -1],
+      testSorting('files.js', 'sandbox.js', 1),
+      testSorting('filestorage.js', 'routes.js', -1),
+      testSorting('unknown.js', 'sandbox.js', 1),
+      testSorting('log.js', 'sandbox.js', 1),
+      testSorting('sandbox.js', 'sandbox.js', 0),
+      testSorting('log.js', 'log.js', 0),
+      testSorting('tasks.js', 'application.js', -1),
+      testSorting('files.js', 'sandbox.js', 1),
     ],
     'common.sortCompareDirectories': [
       [{ name: '/abc' }, { name: 'abc.ext' }, -1],
