@@ -6,6 +6,7 @@ const submodules = [
   'btree', // B-Tree for indexes in DB
   'cache', // Cache (enhanced Map)
   'callbacks', // Callback utilities
+  'csv', // CSV stringify
   'data', // Data structures manipulations
   'enum', // Enumerated type
   'events', // Events and emitter
