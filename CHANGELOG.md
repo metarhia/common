@@ -22,7 +22,9 @@ and this project adheres to
 - `cryptoPrefetcher()` to throw when `bufSize` is not a multiple of
   `valueSize`.
 - `MemoryWritable` internal buffer size is now limited to 8 MB by default.
-- `sortComparePriority` function contract changed.
+- Signature of `callerFilepath()` to allow passing `RegExp` as depth to be used
+  for filtering of stack frames.
+- Contract of sortComparePriority() to return a function capturing the first argument and accepting the other two.
 
 ### Fixed
 
