@@ -1251,10 +1251,12 @@ Mixin for ES6 classes without overriding existing methods
 
 - `priority`: [`<string[]>`][string] with priority
 
-_Returns:_ [`<Function>`][function] function(s1, s2)
+_Returns:_ [`<Function>`][function] comparison function that can be passed to
+`Array#sort()`
 
 - `s1`: [`<string>`][string] to compare
 - `s2`: [`<string>`][string] to compare
+- _Returns:_ [`<number>`][number]
 
 Compare for array.sort with priority
 
