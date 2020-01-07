@@ -24,7 +24,7 @@ and this project adheres to
 - `MemoryWritable` internal buffer size is now limited to 8 MB by default.
 - Signature of `callerFilepath()` to allow passing `RegExp` as depth to be used
   for filtering of stack frames.
-- Contract of sortComparePriority() to return a function capturing the first argument and accepting the other two.
+- Contract of `sortComparePriority()` to only accept a priority array, which was the first argument before the change, and return a comparison function accepting the other two arguments.
 
 ### Fixed
 
