@@ -35,7 +35,7 @@ metatests.case(
       ['sandbox.js', 'sandbox.js', 0],
       ['log.js', 'log.js', 0],
       ['tasks.js', 'application.js', -1],
-      ['files.js', 'sandbox.js', 1],
+      ['tasks.js', 'missing_file', -1],
     ],
     'common.sortCompareDirectories': [
       [{ name: '/abc' }, { name: 'abc.ext' }, -1],

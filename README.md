@@ -185,7 +185,7 @@ $ npm install @metarhia/common
   - [Pool.prototype.constructor](#poolprototypeconstructorfactory--null)
   - [Pool.prototype.get](#poolprototypeget)
   - [Pool.prototype.put](#poolprototypeputvalue)
-- [sortComparePriority](#sortcompareprioritypriority-s1-s2)
+- [sortComparePriority](#sortcompareprioritypriority)
 - [sortCompareDirectories](#sortcomparedirectoriesa-b)
 - [sortCompareByName](#sortcomparebynamea-b)
 - [MemoryWritable](#class-memorywritable-extends-writable)
@@ -1247,13 +1247,14 @@ Mixin for ES6 classes without overriding existing methods
 
 #### Pool.prototype.put(value)
 
-### sortComparePriority(priority, s1, s2)
+### sortComparePriority(priority)
 
 - `priority`: [`<string[]>`][string] with priority
+
+_Returns:_ [`<Function>`][function] function(s1, s2)
+
 - `s1`: [`<string>`][string] to compare
 - `s2`: [`<string>`][string] to compare
-
-_Returns:_ [`<number>`][number]
 
 Compare for array.sort with priority
 
