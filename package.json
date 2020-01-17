@@ -40,15 +40,15 @@
     "node": ">=8.0.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.5.0",
-    "@babel/core": "^7.5.0",
-    "@babel/preset-env": "^7.5.0",
+    "@babel/cli": "^7.8.3",
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
     "@metarhia/doc": "^0.6.0",
-    "eslint": "^6.0.1",
+    "eslint": "^6.8.0",
     "eslint-config-metarhia": "^7.0.0",
-    "eslint-config-prettier": "^6.0.0",
-    "eslint-plugin-import": "^2.18.0",
-    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-prettier": "^3.1.2",
     "metatests": "^0.7.1",
     "prettier": "1.18.x"
   }
