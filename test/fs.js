@@ -87,6 +87,7 @@ const createHierarchy = (hierarchy, cb) => {
       else createHierarchy(hierarchy.slice(1), cb);
     });
   } else {
+    console.dir({ file, data });
     fs.writeFile(file, data, err => {
       if (err) cb(err);
       else createHierarchy(hierarchy.slice(1), cb);
@@ -99,7 +100,7 @@ const hierarchy = [
   { path: ['1', path.sep] },
   { path: ['2', path.sep] },
   { path: ['2', '3'], data: 'data' },
-  { path: ['2', '4.file'] },
+  { path: ['2', '4.file'], data: 'data' },
   { path: ['2', '5', path.sep] },
   { path: ['2', '6', path.sep] },
   { path: ['2', '6', '7', path.sep] },
