@@ -1,3 +1,5 @@
 node_modules/
 coverage/
-dist
+dist/
+test/array.js
+test/data.js
