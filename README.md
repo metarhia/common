@@ -1133,6 +1133,8 @@ This iterator will call `mapper` on each element and if mapper returns NOT
 
 #### Iterator.prototype.keepLast()
 
+_Returns:_ `<KeepLastIterator>`
+
 Creates an iterator that stores last returned value and allows reinserting
 
 it into the iterator.

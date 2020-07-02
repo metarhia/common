@@ -645,8 +645,8 @@ metatests.testSync('Iterator.chainApply on string', test => {
 
 metatests.testSync('Iterator.keepLast empty', test => {
   const actual = iter([]).keepLast();
-  test.strictSame(actual.last, undefined);
-  actual.repeatLast();
+  test.strictSame(actual.last(), undefined);
+  test.type(actual.repeatLast(), 'KeepLastIterator');
   test.strictSame(actual.next(), { done: true, value: undefined });
   test.strictSame(actual.next(), { done: true, value: undefined });
 });
@@ -654,30 +654,30 @@ metatests.testSync('Iterator.keepLast empty', test => {
 metatests.testSync('Iterator.keepLast repeat', test => {
   const actual = iter([1, 2, 3, 4]).keepLast();
   test.strictSame(actual.next(), { done: false, value: 1 });
-  test.strictSame(actual.last, 1);
+  test.strictSame(actual.last(), 1);
 
   actual.repeatLast();
-  test.strictSame(actual.last, 1);
+  test.strictSame(actual.last(), 1);
   test.strictSame(actual.next(), { done: false, value: 1 });
-  test.strictSame(actual.last, 1);
+  test.strictSame(actual.last(), 1);
 
   test.strictSame(actual.next(), { done: false, value: 2 });
   test.strictSame(actual.next(), { done: false, value: 3 });
 
   actual.repeatLast();
-  test.strictSame(actual.last, 3);
+  test.strictSame(actual.last(), 3);
   test.strictSame(actual.next(), { done: false, value: 3 });
-  test.strictSame(actual.last, 3);
+  test.strictSame(actual.last(), 3);
 
   test.strictSame(actual.next(), { done: false, value: 4 });
   test.strictSame(actual.next(), { done: true, value: undefined });
-  test.strictSame(actual.last, undefined);
+  test.strictSame(actual.last(), undefined);
 });
 
 metatests.testSync('Iterator.keepLast takeWhile', test => {
   const keeper = iter([1, 2, 3, 4]).keepLast();
   test.strictSame(keeper.takeWhile(v => v < 3).toArray(), [1, 2]);
-  test.strictSame(keeper.last, 3);
+  test.strictSame(keeper.last(), 3);
   keeper.repeatLast();
   test.strictSame(keeper.toArray(), [3, 4]);
 });
