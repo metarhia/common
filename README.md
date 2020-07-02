@@ -156,6 +156,7 @@ $ npm install @metarhia/common
   - [Iterator.prototype.forEach](#iteratorprototypeforeachfn-thisarg)
   - [Iterator.prototype.includes](#iteratorprototypeincludeselement)
   - [Iterator.prototype.join](#iteratorprototypejoinsep----prefix---suffix--)
+  - [Iterator.prototype.keepLast](#iteratorprototypekeeplast)
   - [Iterator.prototype.map](#iteratorprototypemapmapper-thisarg)
   - [Iterator.prototype.next](#iteratorprototypenext)
   - [Iterator.prototype.reduce](#iteratorprototypereducereducer-initialvalue)
@@ -1129,6 +1130,23 @@ This iterator will call `mapper` on each element and if mapper returns NOT
 #### Iterator.prototype.includes(element)
 
 #### Iterator.prototype.join(sep = ', ', prefix = '', suffix = '')
+
+#### Iterator.prototype.keepLast()
+
+_Returns:_ `<KeepLastIterator>`
+
+Creates an iterator that stores last returned value and allows reinserting
+
+it into the iterator.
+
+_Example:_
+
+```js
+const keeper = iter([1, 2, 3, 4]).keepLast();
+keeper.takeWhile(v => v < 3).toArray(); // [1, 2]
+keeper.repeatLast();
+keeper.toArray(); // [3, 4];
+```
 
 #### Iterator.prototype.map(mapper, thisArg)
 
