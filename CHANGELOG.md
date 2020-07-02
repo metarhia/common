@@ -18,6 +18,9 @@ and this project adheres to
 - Table of contents to documentation.
 - Get random element from array: `sample(array)`.
 - ECMAScript Modules support via importing '@metarhia/common/module'.
+- `Iterator#keepLast()` to allow storing last returned iterator value
+  and nice interactions with `Iterator#takeWhile()`,
+  `Iterator#skipWhile()` etc.
 
 ### Changed
 
