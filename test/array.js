@@ -48,8 +48,8 @@ metatests.case(
         [80, 81, 82],
         [80, 81, 82],
       ],
-      // eslint-disable-next-line no-sparse-arrays
       [
+        // eslint-disable-next-line no-sparse-arrays
         [40, , 45],
         [40, 41, 42, 43, 44, 45],
       ],
