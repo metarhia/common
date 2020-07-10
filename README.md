@@ -1109,10 +1109,11 @@ _Result:_
 
 - `splitBy`: [`<number>`][number]|[`<Function>`][function] chunk size or
   function that takes current iterator value and returns true if new chunk
-  should be created with it
+  should be created with it. The first iterator value will always be added to
+  the first chunk even if `splitBy` returned `true`.
   - `val`: `<any>` current iterator value
-  - _Returns:_ [`<boolean>`][boolean] true if new chunk should be made, false if
-    current value
+  - _Returns:_ [`<boolean>`][boolean] `true` if new chunk should be made,
+    `false` if current value should be added to the previous chunk.
 - _Returns:_ `<ChunkIterator>`
 
 Split iterator into chunks (Arrays).
