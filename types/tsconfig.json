@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "strict": true,
+    "experimentalDecorators": true,
+    "noEmit": true,
+    "baseUrl": ".",
+    "preserveWatchOutput": true,
+    "paths": {
+      "*": ["../node_modules/*"]
+    }
+  },
+  "include": ["lib/**/*.d.ts"]
+}
