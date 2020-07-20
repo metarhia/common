@@ -903,6 +903,21 @@ metatests.testSync('Iterator.groupBy thisArg', test => {
   );
 });
 
+metatests.testSync('Iterator.last empty', test => {
+  const actual = iter([]).last();
+  test.strictSame(actual, undefined);
+});
+
+metatests.testSync('Iterator.last numbers', test => {
+  const actual = iter([1, 2, 3, 4]).last();
+  test.strictSame(actual, 4);
+});
+
+metatests.testSync('Iterator.last objects', test => {
+  const actual = iter([{ a: 1 }, { a: 2 }, { a: 42 }]).last();
+  test.strictSame(actual, { a: 42 });
+});
+
 metatests.testSync('iterEntries must iterate over object entries', test => {
   const source = { a: 13, b: 42, c: 'hello' };
   test.strictSame(iterEntries(source).toArray(), Object.entries(source));

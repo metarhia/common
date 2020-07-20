@@ -159,6 +159,7 @@ $ npm install @metarhia/common
   - [Iterator.prototype.groupBy](#iteratorprototypegroupbyclassifier-thisarg)
   - [Iterator.prototype.includes](#iteratorprototypeincludeselement)
   - [Iterator.prototype.join](#iteratorprototypejoinsep----prefix---suffix--)
+  - [Iterator.prototype.last](#iteratorprototypelast)
   - [Iterator.prototype.map](#iteratorprototypemapmapper-thisarg)
   - [Iterator.prototype.max](#iteratorprototypemaxaccessor-thisarg)
   - [Iterator.prototype.min](#iteratorprototypeminaccessor-thisarg)
@@ -1175,6 +1176,13 @@ Consumes an iterator grouping values by keys
 #### Iterator.prototype.includes(element)
 
 #### Iterator.prototype.join(sep = ', ', prefix = '', suffix = '')
+
+#### Iterator.prototype.last()
+
+_Returns:_ `<any>`|[`<undefined>`][undefined] last value of this iterator or
+[`<undefined>`][undefined]
+
+Consumes an iterator returning last iterator value
 
 #### Iterator.prototype.map(mapper, thisArg)
 
