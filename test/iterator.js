@@ -315,6 +315,154 @@ metatests.test('Iterator.zip with multiple iterators', test => {
   test.end();
 });
 
+metatests.testSync('Iterator#zipLongest with single iterator', test => {
+  const it = iter(array).take(1);
+  const toZip = iter(array).skip(2);
+  test.strictSame(it.zipLongest(toZip).toArray(), [
+    [1, 3],
+    [undefined, 4],
+  ]);
+});
+
+metatests.testSync('Iterator#zipLongest with multiple iterators', test => {
+  const it = iter(array);
+  const itr = iter(array).take(3);
+  const iterator = iter(array).take(2);
+  test.strictSame(it.zipLongest(itr, iterator).toArray(), [
+    [1, 1, 1],
+    [2, 2, 2],
+    [3, 3, undefined],
+    [4, undefined, undefined],
+  ]);
+});
+
+metatests.testSync('Iterator#zipLongest different length', test => {
+  const it = iter([1, 2, 3]);
+  test.strictSame(it.zipLongest(iter([1]), iter([1, 2, 3, 4, 5])).toArray(), [
+    [1, 1, 1],
+    [2, undefined, 2],
+    [3, undefined, 3],
+    [undefined, undefined, 4],
+    [undefined, undefined, 5],
+  ]);
+});
+
+metatests.testSync('Iterator#zipLongestWith with single iterator', test => {
+  const s = Symbol('none');
+  const it = iter(array).take(1);
+  const toZip = iter(array).skip(2);
+  test.strictSame(it.zipLongestWith(s, toZip).toArray(), [
+    [1, 3],
+    [s, 4],
+  ]);
+});
+
+metatests.testSync('Iterator#zipLongestWith with multiple iterators', test => {
+  const s = Symbol('none');
+  const it = iter(array);
+  const itr = iter(array).take(3);
+  const iterator = iter(array).take(2);
+  test.strictSame(it.zipLongestWith(s, itr, iterator).toArray(), [
+    [1, 1, 1],
+    [2, 2, 2],
+    [3, 3, s],
+    [4, s, s],
+  ]);
+});
+
+metatests.testSync('Iterator#zipLongestWith different length', test => {
+  const s = Symbol('none');
+  const it = iter([1, 2, 3]);
+  test.strictSame(
+    it.zipLongestWith(s, iter([1]), iter([1, 2, 3, 4, 5])).toArray(),
+    [
+      [1, 1, 1],
+      [2, s, 2],
+      [3, s, 3],
+      [s, s, 4],
+      [s, s, 5],
+    ]
+  );
+});
+
+metatests.testSync('Iterator.zipLongest with single iterator', test => {
+  const it1 = iter(array).take(1);
+  const it2 = iter(array).skip(2);
+  test.strictSame(Iterator.zipLongest(it1, it2).toArray(), [
+    [1, 3],
+    [undefined, 4],
+  ]);
+});
+
+metatests.testSync('Iterator.zipLongest with multiple iterators', test => {
+  const it1 = iter(array);
+  const it2 = iter(array).take(3);
+  const it3 = iter(array).take(2);
+  test.strictSame(Iterator.zipLongest(it1, it2, it3).toArray(), [
+    [1, 1, 1],
+    [2, 2, 2],
+    [3, 3, undefined],
+    [4, undefined, undefined],
+  ]);
+});
+
+metatests.testSync('Iterator.zipLongest different length', test => {
+  test.strictSame(
+    Iterator.zipLongest(
+      iter([1, 2, 3]),
+      iter([1]),
+      iter([1, 2, 3, 4, 5])
+    ).toArray(),
+    [
+      [1, 1, 1],
+      [2, undefined, 2],
+      [3, undefined, 3],
+      [undefined, undefined, 4],
+      [undefined, undefined, 5],
+    ]
+  );
+});
+
+metatests.testSync('Iterator.zipLongestWith with single iterator', test => {
+  const it1 = iter(array).take(1);
+  const it2 = iter(array).skip(2);
+  test.strictSame(Iterator.zipLongestWith(true, it1, it2).toArray(), [
+    [1, 3],
+    [true, 4],
+  ]);
+});
+
+metatests.testSync('Iterator.zipLongest with multiple iterators', test => {
+  const it1 = iter(array);
+  const it2 = iter(array).take(3);
+  const it3 = iter(array).take(2);
+  test.strictSame(Iterator.zipLongestWith(true, it1, it2, it3).toArray(), [
+    [1, 1, 1],
+    [2, 2, 2],
+    [3, 3, true],
+    [4, true, true],
+  ]);
+});
+
+metatests.testSync('Iterator.zipLongestWith different length', test => {
+  const s = Symbol('none');
+  test.strictSame(
+    Iterator.zipLongestWith(
+      s,
+      iter([1, 2, 3]),
+      iter([1]),
+      iter([1, 2, 3, 4, 5])
+    ).toArray(),
+    [
+      [1, 1, 1],
+      [2, s, 2],
+      [3, s, 3],
+      [s, s, 4],
+      [s, s, 5],
+    ]
+  );
+});
+
 metatests.test('Iterator.chain', test => {
   const it = iter(array).take(1);
   const itr = iter(array)
