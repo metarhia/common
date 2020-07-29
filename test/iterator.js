@@ -918,6 +918,11 @@ metatests.testSync('Iterator.last objects', test => {
   test.strictSame(actual, { a: 42 });
 });
 
+metatests.testSync('Iterator.last with default', test => {
+  const actual = iter([]).last(42);
+  test.strictSame(actual, 42);
+});
+
 metatests.testSync('iterEntries must iterate over object entries', test => {
   const source = { a: 13, b: 42, c: 'hello' };
   test.strictSame(iterEntries(source).toArray(), Object.entries(source));
