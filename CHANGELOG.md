@@ -8,6 +8,11 @@ and this project adheres to
 
 ## [Unreleased][unreleased]
 
+## Added
+
+- `Iterator.firstNonNullable()` to find first non-nullable value or
+  provided `defaultValue`.
+
 ## [2.2.0][] - 2020-07-10
 
 ### Added
