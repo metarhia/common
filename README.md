@@ -1057,7 +1057,7 @@ Convert file path to id
 
 _Returns:_ `<Iterator>`
 
-Create iterator over indices of an array.
+Create iterator over indices of an array
 
 #### Iterator.range(start, stop\[, step\])
 
