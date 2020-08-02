@@ -139,6 +139,8 @@ $ npm install @metarhia/common
 - [Iterator](#class-iterator)
   - [Iterator.range](#iteratorrangestart-stop-step)
   - [Iterator.zip](#iteratorzipiterators)
+  - [Iterator.zipLongest](#iteratorziplongestiterators)
+  - [Iterator.zipLongestWith](#iteratorziplongestwithdefaultvalue-iterators)
   - [Iterator.prototype.constructor](#iteratorprototypeconstructorbase)
   - [Iterator.prototype.apply](#iteratorprototypeapplyfn)
   - [Iterator.prototype.chain](#iteratorprototypechainiterators)
@@ -174,6 +176,8 @@ $ npm install @metarhia/common
   - [Iterator.prototype.toArray](#iteratorprototypetoarray)
   - [Iterator.prototype.toObject](#iteratorprototypetoobject)
   - [Iterator.prototype.zip](#iteratorprototypezipiterators)
+  - [Iterator.prototype.zipLongest](#iteratorprototypeziplongestiterators)
+  - [Iterator.prototype.zipLongestWith](#iteratorprototypeziplongestwithdefaultvalue-iterators)
 - [iter](#iterbase)
 - [iterEntries](#iterentriesobj)
 - [iterKeys](#iterkeysobj)
@@ -1062,11 +1066,39 @@ Create iterator iterating over the range
 
 #### Iterator.zip(...iterators)
 
-- `iterators`: [`<Array>`][array]
+- `...iterators`: [`<Array>`][array] iterators to be aggregated
 
 _Returns:_ `<Iterator>`
 
-Create iterator by zipping multiple provided iterators into one
+Creates an iterator that aggregates elements from each of the iterators.
+
+Returns an iterator of Arrays where the i-th tuple contains the i-th element
+from each of the passed iterators. The iterator stops when the shortest input
+iterable is exhausted.
+
+#### Iterator.zipLongest(...iterators)
+
+- `...iterators`: [`<Array>`][array] iterators to be aggregated
+
+_Returns:_ `<Iterator>`
+
+Creates an iterator that aggregates elements from each of the iterators.
+
+If the iterables are of uneven length, missing values are filled-in with
+[`<undefined>`][undefined]. Iteration continues until the longest iterable is
+exhausted.
+
+#### Iterator.zipLongestWith(defaultValue, ...iterators)
+
+- `defaultValue`: `<any>` value to fill-in missing values with
+- `...iterators`: [`<Array>`][array] iterators to be aggregated
+
+_Returns:_ `<Iterator>`
+
+Creates an iterator that aggregates elements from each of the iterators.
+
+If the iterables are of uneven length, missing values are filled-in with
+`<defaultValue>`. Iteration continues until the longest iterable is exhausted.
 
 #### Iterator.prototype.constructor(base)
 
@@ -1244,6 +1276,40 @@ This is similar to what [`Object.fromEntries()`][object.fromentries()] would
 offer.
 
 #### Iterator.prototype.zip(...iterators)
+
+- `...iterators`: [`<Array>`][array] iterators to be aggregated
+
+_Returns:_ `<Iterator>`
+
+Creates an iterator that aggregates elements from each of the iterators.
+
+Returns an iterator of Arrays where the i-th tuple contains the i-th element
+from each of the passed iterators. The iterator stops when the shortest input
+iterable is exhausted.
+
+#### Iterator.prototype.zipLongest(...iterators)
+
+- `...iterators`: [`<Array>`][array] iterators to be aggregated
+
+_Returns:_ `<Iterator>`
+
+Creates an iterator that aggregates elements from each of the iterators.
+
+If the iterables are of uneven length, missing values are filled-in with
+[`<undefined>`][undefined]. Iteration continues until the longest iterable is
+exhausted.
+
+#### Iterator.prototype.zipLongestWith(defaultValue, ...iterators)
+
+- `defaultValue`: `<any>` value to fill-in missing values with
+- `...iterators`: [`<Array>`][array] iterators to be aggregated
+
+_Returns:_ `<Iterator>`
+
+Creates an iterator that aggregates elements from each of the iterators.
+
+If the iterables are of uneven length, missing values are filled-in with
+`<defaultValue>`. Iteration continues until the longest iterable is exhausted.
 
 ### iter(base)
 

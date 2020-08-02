@@ -8,6 +8,14 @@ and this project adheres to
 
 ## [Unreleased][unreleased]
 
+### Added
+
+- `Iterator#zipLongest()` and `Iterator.zipLongest()`,
+  `Iterator#zipLongestWith()` and `Iterator.zipLongestWith()` similar to
+  `Iterator#zip` but instead of stopping when shortest iterator is exhausted
+  continues until the longest iterable is exhausted filling-in missing values
+  with `undefined` or provided `defaultValue`.
+
 ## [2.2.0][] - 2020-07-10
 
 ### Added
