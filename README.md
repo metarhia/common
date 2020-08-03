@@ -143,6 +143,7 @@ $ npm install @metarhia/common
   - [Iterator.prototype.apply](#iteratorprototypeapplyfn)
   - [Iterator.prototype.chain](#iteratorprototypechainiterators)
   - [Iterator.prototype.chainApply](#iteratorprototypechainapplyfn)
+  - [Iterator.prototype.chunk](#iteratorprototypechunksplitby)
   - [Iterator.prototype.collectTo](#iteratorprototypecollecttocollectionclass)
   - [Iterator.prototype.collectWith](#iteratorprototypecollectwithobj-collector)
   - [Iterator.prototype.count](#iteratorprototypecount)
@@ -1103,6 +1104,19 @@ _Result:_
 ```js
 '3, -1';
 ```
+
+#### Iterator.prototype.chunk(splitBy)
+
+- `splitBy`: [`<number>`][number]|[`<Function>`][function] chunk size or
+  function that takes current iterator value and returns true if new chunk
+  should be created with it. The first iterator value will always be added to
+  the first chunk even if `splitBy` returned `true`.
+  - `val`: `<any>` current iterator value
+  - _Returns:_ [`<boolean>`][boolean] `true` if new chunk should be made,
+    `false` if current value should be added to the previous chunk.
+- _Returns:_ `<ChunkIterator>`
+
+Split iterator into chunks (Arrays).
 
 #### Iterator.prototype.collectTo(CollectionClass)
 

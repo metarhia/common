@@ -903,6 +903,57 @@ metatests.testSync('Iterator.groupBy thisArg', test => {
   );
 });
 
+metatests.testSync('Iterator.chunk', test => {
+  const actual = iter([1, 2, 3, 1, 4, 5, 1, 6, 7])
+    .chunk(v => v === 1)
+    .toArray();
+  test.strictSame(actual, [
+    [1, 2, 3],
+    [1, 4, 5],
+    [1, 6, 7],
+  ]);
+});
+
+metatests.testSync('Iterator.chunk with number', test => {
+  const actual = iter([1, 2, 3, 1, 4, 5, 1, 6, 7])
+    .chunk(3)
+    .toArray();
+  test.strictSame(actual, [
+    [1, 2, 3],
+    [1, 4, 5],
+    [1, 6, 7],
+  ]);
+});
+
+metatests.testSync('Iterator.chunk with empty iterator', test => {
+  const actual = iter([])
+    .chunk(3)
+    .toArray();
+  test.strictSame(actual, []);
+});
+
+metatests.testSync('Iterator.chunk with single chunk', test => {
+  const actual = iter([1, 2, 3, 1, 4, 5, 1, 6, 7])
+    .chunk(() => false)
+    .toArray();
+  test.strictSame(actual, [[1, 2, 3, 1, 4, 5, 1, 6, 7]]);
+});
+
+metatests.testSync('Iterator.chunk with empty chunks', test => {
+  const actual = iter([1, 1, 3, 3, 3, 5, 5])
+    .chunk(x => x === 3)
+    .toArray();
+  test.strictSame(actual, [[1, 1], [3], [3], [3, 5, 5]]);
+});
+
+metatests.testSync('Iterator.chunk with all chunks', test => {
+  const actual = iter([1, 1, 3, 3, 3, 5, 5])
+    .chunk(() => true)
+    .toArray();
+  test.log(actual);
+  test.strictSame(actual, [[1], [1], [3], [3], [3], [5], [5]]);
+});
+
 metatests.testSync('iterEntries must iterate over object entries', test => {
   const source = { a: 13, b: 42, c: 'hello' };
   test.strictSame(iterEntries(source).toArray(), Object.entries(source));

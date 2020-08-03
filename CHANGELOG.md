@@ -28,6 +28,8 @@ and this project adheres to
 - `Iterator.zip()` - static method for zipping iterators.
 - `Iterator#groupBy()` to group iterator value into Map by
   specific keys.
+- `Iterator#chunks()` to allow splitting iterator by chunk size or
+  via custom condition into Arrays of values.
 
 ### Changed
 
