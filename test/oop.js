@@ -62,3 +62,18 @@ metatests.test('multiple inheritance with mixin', test => {
   test.strictSame(obj.property5, 'from Child.method3');
   test.end();
 });
+
+metatests.test('privatize', test => {
+  const source = {
+    CONSTANT: 'constant value',
+    field: 'field value',
+    method() {
+      return [this.CONSTANT, this.field];
+    },
+  };
+  const destination = common.privatize(source);
+  test.strictSame(destination.CONSTANT, 'constant value');
+  test.strictSame(destination.field, undefined);
+  test.strictSame(destination.method(), ['constant value', 'field value']);
+  test.end();
+});
