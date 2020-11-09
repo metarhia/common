@@ -8,6 +8,8 @@ and this project adheres to
 
 ## [Unreleased][unreleased]
 
+- Implement privatize, private fields on prototypes: `privatize(instance)`
+
 ## [2.2.0][] - 2020-07-10
 
 ### Added
