@@ -188,6 +188,8 @@ $ npm install @metarhia/common
 - [parseHost](#parsehosthost)
 - [override](#overrideobj-fn)
 - [mixin](#mixintarget-source)
+- [deepFreeze](#deepfreezeinstance)
+- [freezeNamespaces](#freezenamespacesnamespaces-exceptnames)
 - [Pool](#class-pool)
   - [Pool.prototype.constructor](#poolprototypeconstructorfactory--null)
   - [Pool.prototype.get](#poolprototypeget)
@@ -1333,6 +1335,24 @@ Previous function will be accessible by obj.fnName.inherited
 - `source`: [`<Object>`][object] source methods
 
 Mixin for ES6 classes without overriding existing methods
+
+### deepFreeze(instance)
+
+- `instance`: [`<Object>`][object] target nested objects structure
+
+_Returns:_ [`<Object>`][object] - deep freezed instance
+
+Deep freeze object structure
+
+### freezeNamespaces(namespaces, exceptNames)
+
+- `namespaces`: [`<Object>`][object] target nested objects structure
+- `exceptNames`: [`<Array>`][array] nemes to be skipped for freezing at first
+  level
+
+_Returns:_ undefined
+
+Deep freeze namespaces
 
 ### class Pool
 
