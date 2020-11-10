@@ -11,6 +11,10 @@ metatests.case(
   {
     'common.isScalar': [
       [0, true],
+      [1, true],
+      [1.5, true],
+      [1n, true],
+      [-1n, true],
       ['value1', true],
       [50, true],
       [true, true],
@@ -22,6 +26,14 @@ metatests.case(
       [[], false],
       [{}, false],
       ['', true],
+    ],
+    'common.isReference': [
+      [{}, true],
+      [[], true],
+      [() => {}, true],
+      [1n, false],
+      [null, false],
+      [undefined, false],
     ],
     'common.copy': [
       [
