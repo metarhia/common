@@ -53,6 +53,7 @@ $ npm install @metarhia/common
 - [id](#idx)
 - [asyncId](#asyncidx-callback)
 - [isScalar](#isscalarvalue)
+- [isReference](#isreferencevalue)
 - [copy](#copyds)
 - [clone](#cloneobj)
 - [duplicate](#duplicateobj)
@@ -575,6 +576,14 @@ Async identity function
 _Returns:_ [`<boolean>`][boolean]
 
 Check if value is scalar
+
+### isReference(value)
+
+- `value`: `<any>`
+
+_Returns:_ [`<boolean>`][boolean]
+
+Check if value is reference
 
 ### copy(ds)
 
