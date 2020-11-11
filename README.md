@@ -189,7 +189,7 @@ $ npm install @metarhia/common
 - [override](#overrideobj-fn)
 - [mixin](#mixintarget-source)
 - [deepFreeze](#deepfreezeinstance)
-- [freezeNamespaces](#freezenamespacesnamespaces-exceptnames)
+- [freezeNamespaces](#freezenamespacesnamespaces-skipnames)
 - [Pool](#class-pool)
   - [Pool.prototype.constructor](#poolprototypeconstructorfactory--null)
   - [Pool.prototype.get](#poolprototypeget)
@@ -1344,10 +1344,10 @@ _Returns:_ [`<Object>`][object] - deep freezed instance
 
 Deep freeze object structure
 
-### freezeNamespaces(namespaces, exceptNames)
+### freezeNamespaces(namespaces, skipNames)
 
 - `namespaces`: [`<Object>`][object] target nested objects structure
-- `exceptNames`: [`<Array>`][array] nemes to be skipped for freezing at first
+- `skipNames`: [`<Array>`][array] nemes to be skipped for freezing at first
   level
 
 _Returns:_ undefined
