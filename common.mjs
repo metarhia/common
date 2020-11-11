@@ -90,6 +90,7 @@ export const localIPs = common.localIPs;
 export const parseHost = common.parseHost;
 export const override = common.override;
 export const mixin = common.mixin;
+export const privatize = common.privatize;
 export const Pool = common.Pool;
 export const sortComparePriority = common.sortComparePriority;
 export const sortCompareDirectories = common.sortCompareDirectories;

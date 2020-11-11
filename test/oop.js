@@ -62,3 +62,43 @@ metatests.test('multiple inheritance with mixin', test => {
   test.strictSame(obj.property5, 'from Child.method3');
   test.end();
 });
+
+metatests.test('privatize', test => {
+  const source = {
+    CONSTANT: 'constant value',
+    field: 'field value',
+    '123': 'number field value',
+    counter: 0,
+    method() {
+      return [this.CONSTANT, this.field];
+    },
+    inc(n = 1) {
+      this.counter += n;
+      return this.counter;
+    },
+  };
+  const destination = common.privatize(source);
+  try {
+    destination.CONSTANT = 'can not change freezed';
+  } catch (err) {
+    test.strictSame(err.constructor.name, 'TypeError');
+    test.strictSame(destination.CONSTANT, 'constant value');
+  }
+  test.strictSame(destination.CONSTANT, 'constant value');
+  try {
+    destination.field = 'can not change freezed';
+  } catch (err) {
+    test.strictSame(err.constructor.name, 'TypeError');
+    test.strictSame(destination.field, undefined);
+  }
+  test.strictSame(destination['123'], undefined);
+  test.strictSame(destination.method(), ['constant value', 'field value']);
+  test.strictSame(destination.inc(), 1);
+  try {
+    destination.inc = () => 0;
+  } catch (err) {
+    test.strictSame(err.constructor.name, 'TypeError');
+    test.strictSame(destination.inc(), 2);
+  }
+  test.end();
+});

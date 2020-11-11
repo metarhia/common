@@ -188,6 +188,7 @@ $ npm install @metarhia/common
 - [parseHost](#parsehosthost)
 - [override](#overrideobj-fn)
 - [mixin](#mixintarget-source)
+- [privatize](#privatizeinstance)
 - [Pool](#class-pool)
   - [Pool.prototype.constructor](#poolprototypeconstructorfactory--null)
   - [Pool.prototype.get](#poolprototypeget)
@@ -1333,6 +1334,20 @@ Previous function will be accessible by obj.fnName.inherited
 - `source`: [`<Object>`][object] source methods
 
 Mixin for ES6 classes without overriding existing methods
+
+### privatize(instance)
+
+- `instance`: [`<Object>`][object] source instance
+
+_Returns:_ [`<Object>`][object] - destination instance
+
+Convert instance with public fields to instance with private fields
+
+_Example:_
+
+```js
+common.privatize({ private: 5, f() { return this.private; } });
+```
 
 ### class Pool
 
