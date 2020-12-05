@@ -198,6 +198,7 @@ $ npm install @metarhia/common
 - [MemoryWritable](#class-memorywritable-extends-writable)
   - [MemoryWritable.prototype.constructor](#memorywritableprototypeconstructorsizelimit)
   - [MemoryWritable.prototype.getData](#async-memorywritableprototypegetdataencoding)
+- [replace](#replacestr-substr-newstr)
 - [subst](#substtpl-data-datapath-escapehtml)
 - [htmlEscape](#htmlescapecontent)
 - [fileExt](#fileextfilename)
@@ -1406,6 +1407,22 @@ _Returns:_ [`<Promise>`][promise]
 Return a Promise that will be resolved with all the written data once it
 
 becomes available.
+
+### replace(str, substr, newstr)
+
+- `str`: [`<string>`][string] initial string
+- `substr`: [`<string>`][string] replace this substring
+- `newstr`: [`<string>`][string] replace by this substring
+
+_Returns:_ [`<string>`][string]
+
+Replace all occurrences of substr in str by newstr
+
+_Example:_
+
+```js
+replace('a20w10z2a22aa0', 'a2', 'z') = 'z0w10z2z2aa0';
+```
 
 ### subst(tpl, data, dataPath, escapeHtml)
 

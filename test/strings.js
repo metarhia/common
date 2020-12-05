@@ -9,6 +9,16 @@ metatests.case(
   'Metarhia common library',
   { common },
   {
+    'common.replace': [
+      ['a2a2a2', 'a2', 'z', 'zzz'],
+      ['k2k2k2', 'a2', 'z', 'k2k2k2'],
+      ['', 'a2', 'z', ''],
+      ['a2', '', 'z', 'a2'],
+      ['a2', 'a2', '', ''],
+      ['a2', 'a2', 'a2', 'a2'],
+      ['a2a2a2', 'a2', 'a2', 'a2a2a2'],
+      ['a20w10z2a22aa0', 'a2', '', '0w10z22aa0'],
+    ],
     'common.subst': [
       ['Hello, name', { name: 'Ali' }, '', true, 'Hello, name'],
       [
