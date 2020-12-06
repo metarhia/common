@@ -95,6 +95,7 @@ export const sortComparePriority = common.sortComparePriority;
 export const sortCompareDirectories = common.sortCompareDirectories;
 export const sortCompareByName = common.sortCompareByName;
 export const MemoryWritable = common.MemoryWritable;
+export const replace = common.replace;
 export const subst = common.subst;
 export const htmlEscape = common.htmlEscape;
 export const fileExt = common.fileExt;
