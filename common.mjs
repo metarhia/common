@@ -86,6 +86,7 @@ export const cryptoRandom = common.cryptoRandom;
 export const methods = common.methods;
 export const properties = common.properties;
 export const ipToInt = common.ipToInt;
+export const intToIp = common.intToIp;
 export const localIPs = common.localIPs;
 export const parseHost = common.parseHost;
 export const override = common.override;
