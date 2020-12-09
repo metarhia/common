@@ -8,6 +8,8 @@ and this project adheres to
 
 ## [Unreleased][unreleased]
 
+- add intToIp converter to network
+
 ## [2.2.0][] - 2020-07-10
 
 ### Added

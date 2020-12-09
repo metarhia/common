@@ -183,7 +183,8 @@ $ npm install @metarhia/common
 - [cryptoRandom](#cryptorandom)
 - [methods](#methodsiface)
 - [properties](#propertiesiface)
-- [ipToInt](#iptointip)
+- [ipToInt](#iptointip_string)
+- [intToIp](#inttoipip_number)
 - [localIPs](#localips)
 - [parseHost](#parsehosthost)
 - [override](#overrideobj-fn)
@@ -1296,13 +1297,23 @@ _Returns:_ [`<string[]>`][string] property names
 
 List property names
 
-### ipToInt(\[ip\])
+### ipToInt(IP\_string)
 
-- `ip`: [`<string>`][string] (optional), default: '127.0.0.1', IP address
+- `IP_string`: [`<string>`][string] (optional), default: '127.0.0.1', IPv4
+  address in string form
 
 _Returns:_ [`<number>`][number]
 
-Convert IP string to number
+Convert IPv4 address from string form to number form
+
+### intToIp(IP\_number)
+
+- `IP_number`: [`<number>`][number] (optional), default: 0, IPv4 address in
+  number form
+
+_Returns:_ [`<string>`][string]
+
+Convert IPv4 address from number form to string form
 
 ### localIPs()
 
