@@ -74,7 +74,7 @@ $ npm install @metarhia/common
   - [Flags.from](#flagsfromargs)
   - [Flags.prototype.constructor](#flagsprototypeconstructorargs)
 - [partial](#partialfn-args)
-- [omap](#omapmapfn-obj)
+- [omap](#omapmapfn-src)
 - [compose](#composefns)
 - [maybe](#maybefn-defval-value)
 - [zip](#ziparrays)
@@ -731,12 +731,12 @@ _Returns:_ [`<Function>`][function] function(...rest)
 
 Partially apply arguments to function
 
-### omap(mapFn, obj)
+### omap(mapFn, src)
 
 - `mapFn`: [`<Function>`][function] to apply to every field value
-- `obj`: [`<Object>`][object] which fields used for mapping
+- `src`: [`<Object>`][object] which fields used for mapping
 
-_Returns:_ [`<Object>`][object] with same reference but with transformed fields
+_Returns:_ dest - [`<Object>`][object], new one with transformed fields
 
 Map object fields with provided function
 
