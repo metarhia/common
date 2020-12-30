@@ -1,3 +1,5 @@
 extends:
   - metarhia
   - plugin:prettier/recommended
+parserOptions:
+  ecmaVersion: 2020
