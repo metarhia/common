@@ -15,7 +15,7 @@ const iface = {
   prop5: null,
 };
 
-iface.fn3 = function(x) {
+iface.fn3 = function (x) {
   return x * 3;
 };
 

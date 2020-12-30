@@ -43,12 +43,7 @@ metatests.test('Iterator.count', test => {
 });
 
 metatests.test('Iterator.count on consumed iterator', test => {
-  test.strictSame(
-    iter(array)
-      .skip(array.length)
-      .count(),
-    0
-  );
+  test.strictSame(iter(array).skip(array.length).count(), 0);
   test.end();
 });
 
@@ -136,12 +131,7 @@ metatests.test('Iterator.map with thisArg', test => {
     },
   };
 
-  test.strictSame(
-    iter(array)
-      .map(obj.mapper, obj)
-      .toArray(),
-    [2, 4, 6, 8]
-  );
+  test.strictSame(iter(array).map(obj.mapper, obj).toArray(), [2, 4, 6, 8]);
   test.end();
 });
 
@@ -163,12 +153,7 @@ metatests.test('Iterator.filter with thisArg', test => {
     },
   };
 
-  test.strictSame(
-    iter(array)
-      .filter(obj.predicate, obj)
-      .toArray(),
-    [2, 4]
-  );
+  test.strictSame(iter(array).filter(obj.predicate, obj).toArray(), [2, 4]);
   test.end();
 });
 
@@ -190,12 +175,7 @@ metatests.test('Iterator.filterMap with thisArg', test => {
     },
   };
 
-  test.strictSame(
-    iter(array)
-      .filterMap(obj.predicate, obj)
-      .toArray(),
-    [4, 8]
-  );
+  test.strictSame(iter(array).filterMap(obj.predicate, obj).toArray(), [4, 8]);
   test.end();
 });
 
@@ -212,24 +192,14 @@ metatests.test('Iterator.filterMap with filterValue', test => {
 metatests.test('Iterator.flat', test => {
   const array = [[[[1], 2], 3], 4];
   const flatArray = [1, 2, 3, 4];
-  test.strictSame(
-    iter(array)
-      .flat(3)
-      .toArray(),
-    flatArray
-  );
+  test.strictSame(iter(array).flat(3).toArray(), flatArray);
   test.end();
 });
 
 metatests.test('Iterator.flat with no depth', test => {
   const array = [[[[1], 2], 3], 4];
   const flatArray = [[[1], 2], 3, 4];
-  test.strictSame(
-    iter(array)
-      .flat()
-      .toArray(),
-    flatArray
-  );
+  test.strictSame(iter(array).flat().toArray(), flatArray);
   test.end();
 });
 
@@ -270,12 +240,7 @@ metatests.test('Iterator.flatMap with thisArg', test => {
 
   const array = [1, 2, 3];
   const result = [1, 1, 2, 1, 3, 1];
-  test.strictSame(
-    iter(array)
-      .flatMap(obj.mapper, obj)
-      .toArray(),
-    result
-  );
+  test.strictSame(iter(array).flatMap(obj.mapper, obj).toArray(), result);
   test.end();
 });
 
@@ -317,12 +282,8 @@ metatests.test('Iterator.zip with multiple iterators', test => {
 
 metatests.test('Iterator.chain', test => {
   const it = iter(array).take(1);
-  const itr = iter(array)
-    .skip(1)
-    .take(1);
-  const iterator = iter(array)
-    .skip(2)
-    .take(2);
+  const itr = iter(array).skip(1).take(1);
+  const iterator = iter(array).skip(2).take(2);
   test.strictSame(it.chain(itr, iterator).toArray(), [1, 2, 3, 4]);
   test.end();
 });
@@ -412,7 +373,7 @@ metatests.testSync('Iterator.partition number fn multiple', test => {
 
 metatests.testSync('Iterator.partition boolean fn thisArg', test => {
   const p = iter([1, 2, 3, 4, 5]).partition(
-    function(v) {
+    function (v) {
       return v % 2 === this.res;
     },
     { res: 1 }
@@ -425,7 +386,7 @@ metatests.testSync('Iterator.partition boolean fn thisArg', test => {
 
 metatests.testSync('Iterator.partition number fn thisArg', test => {
   const p = iter([1, 2, 3, 4, 5]).partition(
-    function(v) {
+    function (v) {
       return v % 2 === 0 ? this.part : 0;
     },
     { part: 4 }
@@ -886,7 +847,7 @@ metatests.testSync('Iterator.groupBy objects', test => {
 
 metatests.testSync('Iterator.groupBy thisArg', test => {
   const actual = iter([1, 2, 3, 4, 5]).groupBy(
-    function(v) {
+    function (v) {
       return v % this.radix;
     },
     { radix: 2 }

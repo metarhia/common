@@ -6,7 +6,7 @@ const common = require('..');
 const DefaultDate = Date;
 const dateNowValue = 1561975200000; // 2019-07-01T10:00:00.000Z
 // eslint-disable-next-line no-global-assign
-Date = function(...args) {
+Date = function (...args) {
   if (!new.target) {
     return DefaultDate.apply(DefaultDate, args);
   }
