@@ -32,16 +32,18 @@
     "dist/lib/network.js": false,
     "dist/lib/stream.js": false
   },
+  "types": "./types/common.d.ts",
   "readmeFilename": "README.md",
   "files": [
     "common.mjs",
     "lib/",
-    "dist/"
+    "dist/",
+    "types/"
   ],
   "scripts": {
-    "test": "npm run -s lint && metatests test/ && for test in ./sequential-test/*.js; do metatests \"$test\"; done",
-    "lint": "eslint . && prettier -c \"**/*.js\" \"**/*.json\" \"**/*.md\" \".*rc\" \"**/*.yml\"",
-    "fmt": "prettier --write \"**/*.js\" \"**/*.json\" \"**/*.md\" \".*rc\" \"**/*.yml\"",
+    "test": "npm run -s lint && tsc -p types/tsconfig.json && metatests test/ && for test in ./sequential-test/*.js; do metatests \"$test\"; done",
+    "lint": "eslint . && prettier -c \"**/*.js\" \"**/*.json\" \"**/*.md\" \".*rc\" \"**/*.yml\" \"**/*.d.ts\"",
+    "fmt": "prettier --write \"**/*.js\" \"**/*.json\" \"**/*.md\" \".*rc\" \"**/*.yml\" \"**/*.d.ts\"",
     "doc": "metadoc",
     "build": "babel common.js -d dist && babel lib -d dist/lib && node tools/esmodules-export-gen.js",
     "prepublish": "npm run -s build"
@@ -54,12 +56,15 @@
     "@babel/core": "^7.10.2",
     "@babel/preset-env": "^7.10.2",
     "@metarhia/doc": "^0.6.1",
+    "@typescript-eslint/eslint-plugin": "^3.6.0",
+    "@typescript-eslint/parser": "^3.6.0",
     "eslint": "^6.8.0",
     "eslint-config-metarhia": "^7.0.1",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-prettier": "^3.1.3",
     "metatests": "^0.7.1",
-    "prettier": "1.19.x"
+    "prettier": "1.19.x",
+    "typescript": "^3.9.6"
   }
 }
