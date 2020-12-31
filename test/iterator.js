@@ -12,6 +12,11 @@ metatests.test('new Iterator() on non Iterable', test => {
   test.end();
 });
 
+metatests.testSync('new Iterator() on Iterator', test => {
+  const it = array[Symbol.iterator]();
+  test.strictSame(new Iterator(it).toArray(), array);
+});
+
 metatests.test('iter returns an Iterator', test => {
   const iterator = iter(array);
   test.assert(iterator instanceof Iterator);
