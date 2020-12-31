@@ -1,6 +1,6 @@
 # Metarhia Common Library
 
-![CI Status Badge](https://github.com/metarhia/common/workflows/Tests/badge.svg?branch=master)
+[![CI Status](https://github.com/metarhia/common/workflows/Testing%20CI/badge.svg)](https://github.com/metarhia/common/actions?query=workflow%3A%22Testing+CI%22+branch%3Amaster)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/57f219ad89e64c848685a93f5f2f14c2)](https://www.codacy.com/app/metarhia/common)
 [![NPM Version](https://badge.fury.io/js/%40metarhia%2Fcommon.svg)](https://badge.fury.io/js/%40metarhia%2Fcommon)
 [![NPM Downloads/Month](https://img.shields.io/npm/dm/@metarhia/common.svg)](https://www.npmjs.com/package/@metarhia/common)
