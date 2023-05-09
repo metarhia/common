@@ -8,6 +8,14 @@ and this project adheres to
 
 ## [Unreleased][unreleased]
 
+## [2.2.1][] - 2023-05-10
+
+### Changed
+
+- Update dependencies
+- Drop node.js 8, 10, 12, support 16, 18, 19, 20 to CI
+- Apply new code formatting from prettier and fix eslint rules
+
 ### Added
 
 - `Iterator.indices()` to simplify iterating over indices of an array.
@@ -209,7 +217,8 @@ and this project adheres to
 
 - The first stable version of the `@metarhia/common` package.
 
-[unreleased]: https://github.com/metarhia/common/compare/v2.2.0...HEAD
+[unreleased]: https://github.com/metarhia/common/compare/v2.2.1...HEAD
+[2.2.1]: https://github.com/metarhia/common/compare/v2.2.0...v2.2.1
 [2.2.0]: https://github.com/metarhia/common/compare/v2.1.0...v2.2.0
 [2.1.0]: https://github.com/metarhia/common/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/metarhia/common/compare/v1.5.0...v2.0.0
