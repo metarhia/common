@@ -2,4 +2,4 @@
 
 const common = require('../../');
 
-module.exports = depth => common.callerFilepath(depth);
+module.exports = (depth) => common.callerFilepath(depth);

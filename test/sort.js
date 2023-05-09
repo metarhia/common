@@ -56,10 +56,10 @@ metatests.case(
       [{ name: 'a' }, { name: 'abc' }, -1],
       [{ name: '123' }, { name: 'name' }, -1],
     ],
-  }
+  },
 );
 
-metatests.test('sortCompareDirectories', test => {
+metatests.test('sortCompareDirectories', (test) => {
   const array = [
     { name: 'file0.txt' },
     { name: '/dir' },
@@ -78,7 +78,7 @@ metatests.test('sortCompareDirectories', test => {
   test.end();
 });
 
-metatests.test('sortCompareByName', test => {
+metatests.test('sortCompareByName', (test) => {
   const array = [{ name: 'c' }, { name: 'a' }, { name: 'a' }, { name: 'b' }];
   const sorted = [{ name: 'a' }, { name: 'a' }, { name: 'b' }, { name: 'c' }];
   test.strictSame(array.sort(common.sortCompareByName), sorted);

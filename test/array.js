@@ -60,19 +60,19 @@ metatests.case(
       [[40, [-3]], 6, [40, 41, 42]],
     ],
     'common.shuffle': [
-      [[1, 2, 3], result => JSON.stringify(result.sort()) === '[1,2,3]'],
-      [['a', 'b'], result => JSON.stringify(result.sort()) === '["a","b"]'],
-      [[1, 'a', 3], result => JSON.stringify(result.sort()) === '[1,3,"a"]'],
-      [[], result => JSON.stringify(result.sort()) === '[]'],
+      [[1, 2, 3], (result) => JSON.stringify(result.sort()) === '[1,2,3]'],
+      [['a', 'b'], (result) => JSON.stringify(result.sort()) === '["a","b"]'],
+      [[1, 'a', 3], (result) => JSON.stringify(result.sort()) === '[1,3,"a"]'],
+      [[], (result) => JSON.stringify(result.sort()) === '[]'],
     ],
     'common.sample': [
-      [[1, 2, 3], result => [1, 2, 3].includes(result)],
-      [['a', 'b', 'c'], result => ['a', 'b', 'c'].includes(result)],
+      [[1, 2, 3], (result) => [1, 2, 3].includes(result)],
+      [['a', 'b', 'c'], (result) => ['a', 'b', 'c'].includes(result)],
     ],
-  }
+  },
 );
 
-metatests.test('array / pushSame', test => {
+metatests.test('array / pushSame', (test) => {
   const array = [1, 2, 3];
   test.strictSame(common.pushSame(array, 0, 1), 3);
   test.strictSame(array, [1, 2, 3]);
@@ -81,7 +81,7 @@ metatests.test('array / pushSame', test => {
   test.end();
 });
 
-metatests.test('array / shuffle uniform distribution', test => {
+metatests.test('array / shuffle uniform distribution', (test) => {
   const N = 1e7;
   const dist = {
     abc: 0,
@@ -98,8 +98,8 @@ metatests.test('array / shuffle uniform distribution', test => {
   }
   test.assert(
     Object.values(dist)
-      .map(c => Math.round((c / N) * 100))
-      .every((c, i, arr) => c === arr[0])
+      .map((c) => Math.round((c / N) * 100))
+      .every((c, i, arr) => c === arr[0]),
   );
   test.end();
 });

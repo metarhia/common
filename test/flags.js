@@ -3,7 +3,7 @@
 const metatests = require('metatests');
 const { Flags, Uint64 } = require('..');
 
-metatests.test('FlagsClass.from', test => {
+metatests.test('FlagsClass.from', (test) => {
   const Numeri = Flags.from('Uno', 'Due', 'Tre', 'Quatro');
   test.type(Numeri, 'function');
 
@@ -18,7 +18,7 @@ metatests.test('FlagsClass.from', test => {
   test.end();
 });
 
-metatests.test('new FlagsClass', test => {
+metatests.test('new FlagsClass', (test) => {
   const Numeri = Flags.from('Uno', 'Due', 'Tre', 'Quatro');
   test.type(Numeri, 'function');
 
@@ -33,7 +33,7 @@ metatests.test('new FlagsClass', test => {
   test.end();
 });
 
-metatests.test('new FlagsClass from Uint64', test => {
+metatests.test('new FlagsClass from Uint64', (test) => {
   const Numeri = Flags.from('Uno', 'Due', 'Tre', 'Quatro');
   test.type(Numeri, 'function');
 
@@ -48,7 +48,7 @@ metatests.test('new FlagsClass from Uint64', test => {
   test.end();
 });
 
-metatests.test('FlagsClass.get', test => {
+metatests.test('FlagsClass.get', (test) => {
   const Numeri = Flags.from('Uno', 'Due', 'Tre', 'Quatro');
   const num = Numeri.from('Due', 'Tre');
 
@@ -60,7 +60,7 @@ metatests.test('FlagsClass.get', test => {
   test.end();
 });
 
-metatests.test('FlagsClass.has', test => {
+metatests.test('FlagsClass.has', (test) => {
   const Numeri = Flags.from('Uno', 'Due', 'Tre', 'Quatro');
 
   test.strictSame(Numeri.has('Uno'), true);
@@ -74,7 +74,7 @@ metatests.test('FlagsClass.has', test => {
   test.end();
 });
 
-metatests.test('FlagsClass.set', test => {
+metatests.test('FlagsClass.set', (test) => {
   const Numeri = Flags.from('Uno', 'Due', 'Tre', 'Quatro');
   const num = Numeri.from();
 
@@ -93,7 +93,7 @@ metatests.test('FlagsClass.set', test => {
   test.end();
 });
 
-metatests.test('FlagsClass.unset', test => {
+metatests.test('FlagsClass.unset', (test) => {
   const Numeri = Flags.from('Uno', 'Due', 'Tre', 'Quatro');
   const num = Numeri.from('Due', 'Tre');
 
@@ -112,7 +112,7 @@ metatests.test('FlagsClass.unset', test => {
   test.end();
 });
 
-metatests.test('FlagsClass.toggle', test => {
+metatests.test('FlagsClass.toggle', (test) => {
   const Numeri = Flags.from('Uno', 'Due', 'Tre', 'Quatro');
   const num = Numeri.from();
 
@@ -131,7 +131,7 @@ metatests.test('FlagsClass.toggle', test => {
   test.end();
 });
 
-metatests.test('FlagsClass.toString', test => {
+metatests.test('FlagsClass.toString', (test) => {
   const Numeri = Flags.from('Uno', 'Due', 'Tre', 'Quatro');
   const nums = [
     [[], '0000'],
@@ -145,14 +145,14 @@ metatests.test('FlagsClass.toString', test => {
     [['Tre', 'Quatro'], '1100'],
     [['Uno', 'Due', 'Tre', 'Quatro'], '1111'],
   ];
-  nums.forEach(num =>
-    test.strictSame(Numeri.from(...num[0]).toString(), num[1])
+  nums.forEach((num) =>
+    test.strictSame(Numeri.from(...num[0]).toString(), num[1]),
   );
 
   test.end();
 });
 
-metatests.test('FlagsClass.toNumber', test => {
+metatests.test('FlagsClass.toNumber', (test) => {
   const Numeri = Flags.from('Uno', 'Due', 'Tre', 'Quatro');
   const nums = [
     [[], false],
@@ -166,14 +166,14 @@ metatests.test('FlagsClass.toNumber', test => {
     [['Tre', 'Quatro'], 12],
     [['Uno', 'Due', 'Tre', 'Quatro'], 15],
   ];
-  nums.forEach(num =>
-    test.strictSame(Numeri.from(...num[0]).toNumber(), new Uint64(num[1]))
+  nums.forEach((num) =>
+    test.strictSame(Numeri.from(...num[0]).toNumber(), new Uint64(num[1])),
   );
 
   test.end();
 });
 
-metatests.test('FlagsClass.toPrimitive', test => {
+metatests.test('FlagsClass.toPrimitive', (test) => {
   const Numeri = Flags.from('Uno', 'Due', 'Tre', 'Quatro');
   const nums = [
     [[], 0],
@@ -187,12 +187,12 @@ metatests.test('FlagsClass.toPrimitive', test => {
     [['Tre', 'Quatro'], 12],
     [['Uno', 'Due', 'Tre', 'Quatro'], 15],
   ];
-  nums.forEach(num => test.strictSame(+Numeri.from(...num[0]), num[1]));
+  nums.forEach((num) => test.strictSame(+Numeri.from(...num[0]), num[1]));
 
   test.end();
 });
 
-metatests.test('Create new instance with too much arguments', test => {
+metatests.test('Create new instance with too much arguments', (test) => {
   const values = new Array(65);
   const message = 'Flags does not support more than 64 values';
   test.throws(() => {
@@ -201,7 +201,7 @@ metatests.test('Create new instance with too much arguments', test => {
   test.end();
 });
 
-metatests.test('Get incorrect key', test => {
+metatests.test('Get incorrect key', (test) => {
   const Numeri = Flags.from('Uno', 'Due', 'Tre', 'Quatro');
   const num = Numeri.from();
   const message = 'Flags instance does not have key Cinque';
@@ -211,7 +211,7 @@ metatests.test('Get incorrect key', test => {
   test.end();
 });
 
-metatests.test('Set incorrect key', test => {
+metatests.test('Set incorrect key', (test) => {
   const Numeri = Flags.from('Uno', 'Due', 'Tre', 'Quatro');
   const num = Numeri.from();
   const message = 'Flags instance does not have key Cinque';
@@ -221,7 +221,7 @@ metatests.test('Set incorrect key', test => {
   test.end();
 });
 
-metatests.test('Unset incorrect key', test => {
+metatests.test('Unset incorrect key', (test) => {
   const Numeri = Flags.from('Uno', 'Due', 'Tre', 'Quatro');
   const num = Numeri.from();
   const message = 'Flags instance does not have key Cinque';
@@ -231,7 +231,7 @@ metatests.test('Unset incorrect key', test => {
   test.end();
 });
 
-metatests.test('Toggle incorrect key', test => {
+metatests.test('Toggle incorrect key', (test) => {
   const Numeri = Flags.from('Uno', 'Due', 'Tre', 'Quatro');
   const num = Numeri.from();
   const message = 'Flags instance does not have key Cinque';

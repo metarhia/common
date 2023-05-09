@@ -3,7 +3,7 @@
 const metatests = require('metatests');
 const common = require('..');
 
-metatests.test('override', test => {
+metatests.test('override', (test) => {
   const fn = test.mustNotCall();
   const obj = {
     fn,
@@ -50,7 +50,7 @@ class Child extends Parent {
 
 common.mixin(Child.prototype, Lazy.prototype);
 
-metatests.test('multiple inheritance with mixin', test => {
+metatests.test('multiple inheritance with mixin', (test) => {
   const obj = new Child();
   obj.method1();
   obj.method2();

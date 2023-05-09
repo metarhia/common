@@ -209,5 +209,5 @@ metatests.case(
       ['TestEmail@example.COM', 'TestEmail@example.com'],
       ['TESTEMAIL@EXAMPLE.COM', 'TESTEMAIL@example.com'],
     ],
-  }
+  },
 );

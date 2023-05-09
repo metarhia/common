@@ -3,7 +3,7 @@
 const metatests = require('metatests');
 const common = require('..');
 
-metatests.test('test checkPassword / MIN_LENGTH', test => {
+metatests.test('test checkPassword / MIN_LENGTH', (test) => {
   const password = 'password';
   const passedResult = common.checkPassword(password, [
     { name: 'MIN_LENGTH', minLength: password.length },
@@ -17,7 +17,7 @@ metatests.test('test checkPassword / MIN_LENGTH', test => {
   test.end();
 });
 
-metatests.test('test checkPassword / MAX_LENGTH', test => {
+metatests.test('test checkPassword / MAX_LENGTH', (test) => {
   const password = 'password';
   const passedResult = common.checkPassword(password, [
     { name: 'MAX_LENGTH', maxLength: password.length },
@@ -31,7 +31,7 @@ metatests.test('test checkPassword / MAX_LENGTH', test => {
   test.end();
 });
 
-metatests.test('test checkPassword / MIN_PASSPHRASE_LENGTH', test => {
+metatests.test('test checkPassword / MIN_PASSPHRASE_LENGTH', (test) => {
   const password = 'password';
   const passedResult = common.checkPassword(password, [
     { name: 'MIN_PASSPHRASE_LENGTH', minLength: password.length },
@@ -45,7 +45,7 @@ metatests.test('test checkPassword / MIN_PASSPHRASE_LENGTH', test => {
   test.end();
 });
 
-metatests.test('test checkPassword / MAX_REPEATED_CHARS', test => {
+metatests.test('test checkPassword / MAX_REPEATED_CHARS', (test) => {
   const password = 'password';
   const passedResult = common.checkPassword(password, [
     {
@@ -65,7 +65,7 @@ metatests.test('test checkPassword / MAX_REPEATED_CHARS', test => {
   test.end();
 });
 
-metatests.test('test checkPassword / MIN_LOWERCASE_CHARS', test => {
+metatests.test('test checkPassword / MIN_LOWERCASE_CHARS', (test) => {
   const password = 'PASSword𞥃';
   const passedResult = common.checkPassword(password, [
     {
@@ -85,7 +85,7 @@ metatests.test('test checkPassword / MIN_LOWERCASE_CHARS', test => {
   test.end();
 });
 
-metatests.test('test checkPassword / MIN_UPPERCASE_CHARS', test => {
+metatests.test('test checkPassword / MIN_UPPERCASE_CHARS', (test) => {
   const password = 'PASSword𞤡';
   const passedResult = common.checkPassword(password, [
     {
@@ -105,7 +105,7 @@ metatests.test('test checkPassword / MIN_UPPERCASE_CHARS', test => {
   test.end();
 });
 
-metatests.test('test checkPassword / MIN_NUMBERS', test => {
+metatests.test('test checkPassword / MIN_NUMBERS', (test) => {
   const password = 'pa123ss45';
   const passedResult = common.checkPassword(password, [
     {
@@ -125,7 +125,7 @@ metatests.test('test checkPassword / MIN_NUMBERS', test => {
   test.end();
 });
 
-metatests.test('test checkPassword / FOUND_TOPOLOGY', test => {
+metatests.test('test checkPassword / FOUND_TOPOLOGY', (test) => {
   const topologies = ['ullllldd', 'ulldddds'];
 
   const passedResult = common.checkPassword('UUUU', [
@@ -144,7 +144,7 @@ metatests.test('test checkPassword / FOUND_TOPOLOGY', test => {
   test.end();
 });
 
-metatests.test('test checkPassword / POPULAR_PASSWORD', test => {
+metatests.test('test checkPassword / POPULAR_PASSWORD', (test) => {
   const popularPasswords = ['pass'];
 
   const passedResult = common.checkPassword('abcd', [
@@ -159,7 +159,7 @@ metatests.test('test checkPassword / POPULAR_PASSWORD', test => {
   test.end();
 });
 
-metatests.test('test checkPassword / MIN_SPECIAL_CHARS', test => {
+metatests.test('test checkPassword / MIN_SPECIAL_CHARS', (test) => {
   const password = 'pa!#ss&*';
   const passedResult = common.checkPassword(password, [
     {
@@ -179,7 +179,7 @@ metatests.test('test checkPassword / MIN_SPECIAL_CHARS', test => {
   test.end();
 });
 
-metatests.test('test checkPassword / Default', test => {
+metatests.test('test checkPassword / Default', (test) => {
   const passedResult = common.checkPassword('abcdefghij');
   const failedResult = common.checkPassword('p');
 
@@ -188,7 +188,7 @@ metatests.test('test checkPassword / Default', test => {
   test.end();
 });
 
-metatests.test('test checkLogin / MIN_LENGTH', test => {
+metatests.test('test checkLogin / MIN_LENGTH', (test) => {
   const login = 'login';
   const passedResult = common.checkLogin(login, [
     { name: 'MIN_LENGTH', minLength: login.length },
@@ -202,7 +202,7 @@ metatests.test('test checkLogin / MIN_LENGTH', test => {
   test.end();
 });
 
-metatests.test('test checkLogin / MAX_LENGTH', test => {
+metatests.test('test checkLogin / MAX_LENGTH', (test) => {
   const login = 'login';
   const passedResult = common.checkLogin(login, [
     { name: 'MAX_LENGTH', maxLength: login.length },
@@ -216,7 +216,7 @@ metatests.test('test checkLogin / MAX_LENGTH', test => {
   test.end();
 });
 
-metatests.test('test checkLogin / Default', test => {
+metatests.test('test checkLogin / Default', (test) => {
   const passedResult = common.checkLogin('login1');
   const failedResultShort = common.checkLogin('short');
   const failedResultLong = common.checkLogin('too' + 'long'.repeat(30));
@@ -227,9 +227,9 @@ metatests.test('test checkLogin / Default', test => {
   test.end();
 });
 
-metatests.test('test checkLogin / IS_EMAIL', test => {
+metatests.test('test checkLogin / IS_EMAIL', (test) => {
   const emails = ['local-part@domain', 'l@dom'];
-  emails.forEach(email => {
+  emails.forEach((email) => {
     const passedResult = common.checkLogin(email, ['IS_EMAIL']);
     test.strictSame(passedResult.valid, true);
   });
@@ -242,14 +242,14 @@ metatests.test('test checkLogin / IS_EMAIL', test => {
     'l'.repeat(65) + '@domain',
     'local-part@' + 'd'.repeat(256),
   ];
-  invalidEmails.forEach(invalidEmail => {
+  invalidEmails.forEach((invalidEmail) => {
     const failedResult = common.checkLogin(invalidEmail, ['IS_EMAIL']);
     test.strictSame(failedResult.valid, false);
   });
   test.end();
 });
 
-metatests.test('test checkLoginPassword / LOGIN_INCLUDES_PASSWORD', test => {
+metatests.test('test checkLoginPassword / LOGIN_INCLUDES_PASSWORD', (test) => {
   const passedResult = common.checkLoginPassword('login', 'password', [
     'LOGIN_INCLUDES_PASSWORD',
   ]);
@@ -262,7 +262,7 @@ metatests.test('test checkLoginPassword / LOGIN_INCLUDES_PASSWORD', test => {
   test.end();
 });
 
-metatests.test('test checkLoginPassword / PASSWORD_INCLUDES_LOGIN', test => {
+metatests.test('test checkLoginPassword / PASSWORD_INCLUDES_LOGIN', (test) => {
   const passedResult = common.checkLoginPassword('login', 'password', [
     'PASSWORD_INCLUDES_LOGIN',
   ]);
@@ -275,7 +275,7 @@ metatests.test('test checkLoginPassword / PASSWORD_INCLUDES_LOGIN', test => {
   test.end();
 });
 
-metatests.test('test checkLoginPassword / Default', test => {
+metatests.test('test checkLoginPassword / Default', (test) => {
   const passedResult = common.checkLoginPassword('login', 'password');
   const failedResult1 = common.checkLoginPassword('loginpassword', 'password');
   const failedResult2 = common.checkLoginPassword('login', 'loginpassword');
@@ -286,7 +286,7 @@ metatests.test('test checkLoginPassword / Default', test => {
   test.end();
 });
 
-metatests.test('test AuthenticationStrength / compliance', test => {
+metatests.test('test AuthenticationStrength / compliance', (test) => {
   let password = 'pass';
   const required = [{ name: 'MIN_LENGTH', minLength: 5 }];
   const optional = [

@@ -87,7 +87,7 @@ module.exports = `;
 /* eslint-enable implicit-arrow-linebreak */
 
 const resultObject = {};
-resultObject.addRange = range => {
+resultObject.addRange = (range) => {
   if (range.max) {
     resultObject[range.category].push([range.min, range.max]);
   } else if (range.min) {
@@ -95,15 +95,15 @@ resultObject.addRange = range => {
   }
 };
 
-UNICODE_CATEGORIES.forEach(category => {
+UNICODE_CATEGORIES.forEach((category) => {
   resultObject[category] = [];
 });
 
-http.get(UCD_LINK, res => {
+http.get(UCD_LINK, (res) => {
   const linereader = readline.createInterface({ input: res, historySize: 0 });
   let prevCategory;
   let range = {};
-  linereader.on('line', line => {
+  linereader.on('line', (line) => {
     const [code, , category] = line.split(';');
     if (UNICODE_CATEGORIES.includes(category)) {
       const decimalCode = parseInt(code, 16);
