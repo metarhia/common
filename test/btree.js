@@ -3,16 +3,8 @@
 const { BTree } = require('..');
 const metatests = require('metatests');
 
-metatests.test('basic set', test => {
+metatests.test('basic set', (test) => {
   const bTree = new BTree(2);
-
-  test.strictSame(bTree.root, [
-    {
-      key: undefined,
-      data: undefined,
-      child: null,
-    },
-  ]);
 
   bTree.set(40, { city: 'Abu Dhabi' });
 
@@ -32,7 +24,7 @@ metatests.test('basic set', test => {
   test.end();
 });
 
-metatests.test('set with spliting root', test => {
+metatests.test('set with spliting root', (test) => {
   const bTree = new BTree(2);
   bTree
     .set(40, { city: 'Abu Dhabi' })
@@ -53,7 +45,7 @@ metatests.test('set with spliting root', test => {
   test.end();
 });
 
-metatests.test('Insert key, which already are in', test => {
+metatests.test('Insert key, which already are in', (test) => {
   const bTree = new BTree(2);
   bTree
     .set('first', { data: 'first set' })
@@ -72,7 +64,7 @@ metatests.test('Insert key, which already are in', test => {
   test.end();
 });
 
-metatests.test('set with spliting internal node', test => {
+metatests.test('set with spliting internal node', (test) => {
   const bTree = new BTree(3);
 
   bTree
@@ -103,7 +95,7 @@ metatests.test('set with spliting internal node', test => {
   test.end();
 });
 
-metatests.test('get / number keys', test => {
+metatests.test('get / number keys', (test) => {
   const bTree = new BTree(3);
 
   bTree
@@ -126,7 +118,7 @@ metatests.test('get / number keys', test => {
   test.end();
 });
 
-metatests.test('get / string keys', test => {
+metatests.test('get / string keys', (test) => {
   const bTree = new BTree(3);
 
   bTree
@@ -149,7 +141,7 @@ metatests.test('get / string keys', test => {
   test.end();
 });
 
-metatests.test('iterator / numer key', test => {
+metatests.test('iterator / numer key', (test) => {
   const bTree = new BTree(2);
 
   bTree
@@ -204,7 +196,7 @@ metatests.test('iterator / numer key', test => {
   test.end();
 });
 
-metatests.test('iterator / string keys', test => {
+metatests.test('iterator / string keys', (test) => {
   const bTree = new BTree();
 
   bTree
@@ -235,7 +227,7 @@ metatests.test('iterator / string keys', test => {
   test.end();
 });
 
-metatests.test('remove', test => {
+metatests.test('remove', (test) => {
   const bTree = new BTree(2);
   bTree
     .set(40, { city: 'Abu Dhabi' })

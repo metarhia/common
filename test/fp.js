@@ -3,7 +3,7 @@
 const metatests = require('metatests');
 const common = require('..');
 
-metatests.test('partial ', test => {
+metatests.test('partial ', (test) => {
   const func = (a, b, c, d) => a + b + c + d;
   const fn1 = common.partial(func);
   const fn2 = common.partial(func, 10);
@@ -23,21 +23,21 @@ metatests.test('partial ', test => {
   test.end();
 });
 
-metatests.test('omap', test => {
+metatests.test('omap', (test) => {
   const persons = {
     vlad: { age: 20, side: 'good' },
     dziuba: { age: 20, side: 'evil' },
   };
   const expected = { vlad: 'good', dziuba: 'evil' };
-  const result = common.omap(p => p.side, persons);
+  const result = common.omap((p) => p.side, persons);
   test.strictSame(result, expected);
   test.end();
 });
 
-metatests.test('compose', test => {
-  const fn1 = x => x + 1;
-  const fn2 = x => x * 3;
-  const fn3 = x => x - 2;
+metatests.test('compose', (test) => {
+  const fn1 = (x) => x + 1;
+  const fn2 = (x) => x * 3;
+  const fn3 = (x) => x - 2;
 
   const composedFunction = common.compose(fn1, fn2, fn3);
   test.strictSame(composedFunction(4), 13);
@@ -46,15 +46,15 @@ metatests.test('compose', test => {
   test.end();
 });
 
-metatests.test('compose without arguments', test => {
+metatests.test('compose without arguments', (test) => {
   const emptyComposed = common.compose();
   test.strictSame(emptyComposed(1, 2, 3), 1);
   test.end();
 });
 
-metatests.test('maybe', test => {
+metatests.test('maybe', (test) => {
   const fn = (expected, mustCall) => {
-    const f = actual => {
+    const f = (actual) => {
       test.strictSame(actual, expected);
       return actual * 2;
     };
@@ -68,7 +68,7 @@ metatests.test('maybe', test => {
   test.end();
 });
 
-metatests.test('zip', test => {
+metatests.test('zip', (test) => {
   const data = [
     [1, 2, 3],
     ['one', 'two', 'three'],
@@ -84,20 +84,20 @@ metatests.test('zip', test => {
   test.end();
 });
 
-metatests.test('zip with no elements', test => {
+metatests.test('zip with no elements', (test) => {
   const res = common.zip();
   test.strictSame(res, []);
   test.end();
 });
 
-metatests.test('replicate', test => {
+metatests.test('replicate', (test) => {
   const expected = [true, true, true, true, true];
   const result = common.replicate(5, true);
   test.strictSame(result, expected);
   test.end();
 });
 
-metatests.test('zipWith', test => {
+metatests.test('zipWith', (test) => {
   const data = [
     [1, 2, 3],
     ['one', 'two', 'three'],
@@ -114,49 +114,49 @@ metatests.test('zipWith', test => {
   test.end();
 });
 
-metatests.test('curry(f)(1)(2)(3)', test => {
+metatests.test('curry(f)(1)(2)(3)', (test) => {
   const sum = (x, y, z) => x + y + z;
   const res = common.curry(sum)(1)(2)(3);
   test.strictSame(res, 6);
   test.end();
 });
 
-metatests.test('curry(f, 1)(2)(3)', test => {
+metatests.test('curry(f, 1)(2)(3)', (test) => {
   const sum = (x, y, z) => x + y + z;
   const res = common.curry(sum, 1)(2)(3);
   test.strictSame(res, 6);
   test.end();
 });
 
-metatests.test('curry(f, 1, 2)(3)', test => {
+metatests.test('curry(f, 1, 2)(3)', (test) => {
   const sum = (x, y, z) => x + y + z;
   const res = common.curry(sum, 1, 2)(3);
   test.strictSame(res, 6);
   test.end();
 });
 
-metatests.test('curry(f, 1, 2, 3)', test => {
+metatests.test('curry(f, 1, 2, 3)', (test) => {
   const sum = (x, y, z) => x + y + z;
   const res = common.curry(sum, 1, 2, 3);
   test.strictSame(res, 6);
   test.end();
 });
 
-metatests.test('curry(f, 1)(2, 3)', test => {
+metatests.test('curry(f, 1)(2, 3)', (test) => {
   const sum = (x, y, z) => x + y + z;
   const res = common.curry(sum, 1)(2, 3);
   test.strictSame(res, 6);
   test.end();
 });
 
-metatests.test('curry(f)(1, 2, 3)', test => {
+metatests.test('curry(f)(1, 2, 3)', (test) => {
   const sum = (x, y, z) => x + y + z;
   const res = common.curry(sum)(1, 2, 3);
   test.strictSame(res, 6);
   test.end();
 });
 
-metatests.testSync('multiple curry of sum(x, y)', test => {
+metatests.testSync('multiple curry of sum(x, y)', (test) => {
   const sum = (x, y) => x + y;
   const sumCurry = common.curry(sum);
   const addOne = sumCurry(1);
@@ -167,7 +167,7 @@ metatests.testSync('multiple curry of sum(x, y)', test => {
   test.strictSame(addTwo(20), 22);
 });
 
-metatests.testSync('multiple curry of sum(x, y, z)', test => {
+metatests.testSync('multiple curry of sum(x, y, z)', (test) => {
   const sum = (x, y, z) => x + y + z;
   const sumCurry = common.curry(sum);
   const addOneTwo = sumCurry(1, 2);
@@ -178,8 +178,8 @@ metatests.testSync('multiple curry of sum(x, y, z)', test => {
   test.strictSame(addTwoThree(20), 25);
 });
 
-metatests.testSync('curry of identity', test => {
-  const id = x => x;
+metatests.testSync('curry of identity', (test) => {
+  const id = (x) => x;
   const idCurry = common.curry(id);
   test.strictSame(idCurry(10), 10);
   test.strictSame(idCurry(20), 20);
@@ -187,13 +187,13 @@ metatests.testSync('curry of identity', test => {
   test.strictSame(common.curry(id, 10), 10);
 });
 
-metatests.testSync('curry of unit', test => {
+metatests.testSync('curry of unit', (test) => {
   const unit = () => 42;
   const unitCurry = common.curry(unit);
   test.strictSame(unitCurry(), 42);
 });
 
-metatests.testSync('redundant args must be ignored', test => {
+metatests.testSync('redundant args must be ignored', (test) => {
   const add = (x, y) => x + y;
   const addCurry = common.curry(add);
   test.strictSame(addCurry(1, 2, 4), 3);
@@ -205,7 +205,7 @@ metatests.testSync('redundant args must be ignored', test => {
   test.strictSame(common.curry(sum, 1, 2, 3, 4, 5), 6);
 });
 
-metatests.test('curryN', test => {
+metatests.test('curryN', (test) => {
   const sum = (x, y, z) => x + y + z;
   const sumC = common.curryN(sum, 2, 1);
   const sumC2 = sumC(2);
@@ -214,13 +214,13 @@ metatests.test('curryN', test => {
   test.end();
 });
 
-metatests.test('curryTwice', test => {
+metatests.test('curryTwice', (test) => {
   const sum = (x, y) => x + y;
   test.strictSame(common.curryTwice(sum)(1)(2), 3);
   test.end();
 });
 
-metatests.test('applyArgs', test => {
+metatests.test('applyArgs', (test) => {
   const argsFn = common.applyArgs(1, 2, 3);
   const fn = test.mustCall((a, b, c) => {
     test.strictSame([a, b, c], [1, 2, 3]);
@@ -230,8 +230,8 @@ metatests.test('applyArgs', test => {
   test.end();
 });
 
-metatests.test('either', test => {
-  const fnEither = common.either(x => x * 2);
+metatests.test('either', (test) => {
+  const fnEither = common.either((x) => x * 2);
 
   const res = fnEither(1, 2);
 
@@ -239,9 +239,9 @@ metatests.test('either', test => {
   test.end();
 });
 
-metatests.test('either with one error and one success', test => {
+metatests.test('either with one error and one success', (test) => {
   const fnError = new Error('either with error');
-  const fn = x => {
+  const fn = (x) => {
     if (x === 1) {
       throw fnError;
     } else {
@@ -256,10 +256,10 @@ metatests.test('either with one error and one success', test => {
   test.end();
 });
 
-metatests.test('either with all errors', test => {
+metatests.test('either with all errors', (test) => {
   const fnError1 = new Error('either with error 1');
   const fnError2 = new Error('either with error 2');
-  const fn = x => {
+  const fn = (x) => {
     if (x === 1) {
       throw fnError1;
     } else {
@@ -272,7 +272,7 @@ metatests.test('either with all errors', test => {
   test.end();
 });
 
-metatests.test('restLeft', test => {
+metatests.test('restLeft', (test) => {
   const expectedArgs = [3, 4, 5];
   const expectedArg1 = 1;
   const expectedArg2 = 2;

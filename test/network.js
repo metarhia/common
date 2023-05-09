@@ -28,13 +28,13 @@ metatests.case(
       ['domain.com:8080', 'domain.com'],
       ['localhost:8080', 'localhost'],
     ],
-  }
+  },
 );
 
-metatests.test('localIPs', test => {
+metatests.test('localIPs', (test) => {
   const ips = common.localIPs();
   test.assert(Array.isArray(ips));
-  test.assert(ips.every(ip => net.isIPv4(ip)));
+  test.assert(ips.every((ip) => net.isIPv4(ip)));
 
   // caching:
   const networkInterfacesOriginal = os.networkInterfaces;

@@ -3,7 +3,7 @@
 const metatests = require('metatests');
 const common = require('..');
 
-metatests.test('Int64 binary operators', test => {
+metatests.test('Int64 binary operators', (test) => {
   [
     {
       values: [0, 0],
@@ -288,8 +288,8 @@ metatests.test('Int64 binary operators', test => {
         xor: '-1',
       },
     },
-  ].forEach(testcase => {
-    Object.keys(testcase.operations).forEach(op => {
+  ].forEach((testcase) => {
+    Object.keys(testcase.operations).forEach((op) => {
       const a = new common.Int64(testcase.values[0]);
       const b = new common.Int64(testcase.values[1]);
       if (common.Int64[op]) {
@@ -299,7 +299,7 @@ metatests.test('Int64 binary operators', test => {
           testcase.operations[op],
           `must successfully perform binary static operation ${op}` +
             ` on numbers ${testcase.values[0].toString(16)} and` +
-            ` ${testcase.values[1].toString(16)}`
+            ` ${testcase.values[1].toString(16)}`,
         );
       }
       if (a[op]) {
@@ -309,7 +309,7 @@ metatests.test('Int64 binary operators', test => {
           testcase.operations[op],
           `must successfully perform binary non-static operation ${op}` +
             ` on numbers ${testcase.values[0].toString(16)} and` +
-            ` ${testcase.values[1].toString(16)}`
+            ` ${testcase.values[1].toString(16)}`,
         );
       }
     });
@@ -318,7 +318,7 @@ metatests.test('Int64 binary operators', test => {
   test.end();
 });
 
-metatests.test('Int64 binary operators with numbers', test => {
+metatests.test('Int64 binary operators with numbers', (test) => {
   [
     {
       values: [0, 0],
@@ -518,8 +518,8 @@ metatests.test('Int64 binary operators with numbers', test => {
         shiftRightArithmetic: '-3c3c3c3c3c3c3c4',
       },
     },
-  ].forEach(testcase => {
-    Object.keys(testcase.operations).forEach(op => {
+  ].forEach((testcase) => {
+    Object.keys(testcase.operations).forEach((op) => {
       const a = new common.Int64(testcase.values[0]);
       const b = testcase.values[1];
       if (common.Int64[op]) {
@@ -529,7 +529,7 @@ metatests.test('Int64 binary operators with numbers', test => {
           testcase.operations[op],
           `must successfully perform binary static operation ${op}` +
             ` on numbers ${testcase.values[0].toString(16)} and` +
-            ` ${testcase.values[1]}`
+            ` ${testcase.values[1]}`,
         );
       }
       if (a[op]) {
@@ -539,7 +539,7 @@ metatests.test('Int64 binary operators with numbers', test => {
           testcase.operations[op],
           `must successfully perform binary non-static operation ${op}` +
             ` on numbers ${testcase.values[0].toString(16)} and` +
-            ` ${testcase.values[1]}`
+            ` ${testcase.values[1]}`,
         );
       }
     });
@@ -548,7 +548,7 @@ metatests.test('Int64 binary operators with numbers', test => {
   test.end();
 });
 
-metatests.test('Int64 unary operators', test => {
+metatests.test('Int64 unary operators', (test) => {
   [
     {
       value: '0',
@@ -598,8 +598,8 @@ metatests.test('Int64 unary operators', test => {
         dec: 'f0f0f0f0f0f0f0e',
       },
     },
-  ].forEach(testcase => {
-    Object.keys(testcase.operations).forEach(op => {
+  ].forEach((testcase) => {
+    Object.keys(testcase.operations).forEach((op) => {
       const a = new common.Int64(testcase.value);
       if (common.Int64[op]) {
         const result = common.Int64[op](a);
@@ -607,7 +607,7 @@ metatests.test('Int64 unary operators', test => {
           result.toString(16),
           testcase.operations[op],
           `must successfully perform unary static operation ${op}` +
-            ` on number ${testcase.value.toString(16)}`
+            ` on number ${testcase.value.toString(16)}`,
         );
       }
       if (a[op]) {
@@ -616,7 +616,7 @@ metatests.test('Int64 unary operators', test => {
           a.toString(16),
           testcase.operations[op],
           `must successfully perform unary non-static operation ${op}` +
-            ` on numbers ${testcase.value.toString(16)}`
+            ` on numbers ${testcase.value.toString(16)}`,
         );
       }
     });
@@ -625,7 +625,7 @@ metatests.test('Int64 unary operators', test => {
   test.end();
 });
 
-metatests.test('Int64.prototype.toString()', test => {
+metatests.test('Int64.prototype.toString()', (test) => {
   [
     0,
     1,
@@ -641,12 +641,12 @@ metatests.test('Int64.prototype.toString()', test => {
     ['0b100000000000000000000000000000000000000000000000000000000000000', 2],
     ['0x7000000000000000', 16],
     ['0x7fffffffffffffff', 16],
-  ].forEach(testcase => {
+  ].forEach((testcase) => {
     if (typeof testcase !== 'number') {
       test.strictSame(
         new common.Int64(testcase[0]).toString(testcase[1]),
         testcase[0].slice(2),
-        `must serialize number ${testcase[0]} with radix ${testcase[1]}`
+        `must serialize number ${testcase[0]} with radix ${testcase[1]}`,
       );
       return;
     }
@@ -654,7 +654,7 @@ metatests.test('Int64.prototype.toString()', test => {
       test.strictSame(
         new common.Int64(testcase).toString(radix),
         testcase.toString(radix),
-        `must serialize number ${testcase} with radix ${radix}`
+        `must serialize number ${testcase} with radix ${radix}`,
       );
     }
   });
@@ -662,7 +662,7 @@ metatests.test('Int64.prototype.toString()', test => {
   test.end();
 });
 
-metatests.test('Int64.prototype.toInt32()', test => {
+metatests.test('Int64.prototype.toInt32()', (test) => {
   [
     [0, 0],
     [1, 1],
@@ -672,19 +672,19 @@ metatests.test('Int64.prototype.toInt32()', test => {
     [0xffffffff, -1],
     ['0xffffffff00000001', 1],
     ['0xffffffff00000000', 0],
-  ].forEach(testcase => {
+  ].forEach((testcase) => {
     test.strictSame(
       new common.Int64(testcase[0]).toInt32(),
       testcase[1],
       `must extract Int32 number ${testcase[1]} ` +
-        `from Int64 number ${testcase[0]}`
+        `from Int64 number ${testcase[0]}`,
     );
   });
 
   test.end();
 });
 
-metatests.test('Int64.prototype.toUint32()', test => {
+metatests.test('Int64.prototype.toUint32()', (test) => {
   [
     [0, 0],
     [1, 1],
@@ -694,19 +694,19 @@ metatests.test('Int64.prototype.toUint32()', test => {
     [0xffffffff, 4294967295],
     ['0xffffffff00000001', 1],
     ['0xffffffff00000000', 0],
-  ].forEach(testcase => {
+  ].forEach((testcase) => {
     test.strictSame(
       new common.Int64(testcase[0]).toUint32(),
       testcase[1],
       `must extract Uint32 number ${testcase[1]} ` +
-        `from Int64 number ${testcase[0]}`
+        `from Int64 number ${testcase[0]}`,
     );
   });
 
   test.end();
 });
 
-metatests.test('Int64.constructor()', test => {
+metatests.test('Int64.constructor()', (test) => {
   [
     {
       value: 10,
@@ -759,12 +759,12 @@ metatests.test('Int64.constructor()', test => {
       message: 'must create zero Int64 from an invalid bin string',
     },
     {
-      value: 9999999999999999999999999999999999,
+      value: parseInt('9999999999999999999999999999999999', 10),
       expectedString: '0',
       message: 'must create zero Int64 from an unsafe integer number',
     },
     {
-      value: -9999999999999999999999999999999999,
+      value: parseInt('-9999999999999999999999999999999999', 10),
       expectedString: '0',
       message: 'must create zero Int64 from an unsafe integer number',
     },
@@ -814,19 +814,19 @@ metatests.test('Int64.constructor()', test => {
       expectedString: '-9223372036854775808',
       message: 'must create Int64 from a big dec number provided as a string',
     },
-  ].forEach(testcase => {
+  ].forEach((testcase) => {
     const Int64 = new common.Int64(testcase.value);
     test.strictSame(
       Int64.toString(),
       testcase.expectedString,
-      testcase.message
+      testcase.message,
     );
   });
 
   test.end();
 });
 
-metatests.test('Int64 division by zero', test => {
+metatests.test('Int64 division by zero', (test) => {
   const nonZeroNumber = new common.Int64(10);
   const zero = new common.Int64(0);
   test.throws(
@@ -834,16 +834,16 @@ metatests.test('Int64 division by zero', test => {
       common.Int64.div(nonZeroNumber, zero);
     },
     new RangeError('Int64: division by zero'),
-    'must throw when dividing by zero'
+    'must throw when dividing by zero',
   );
 
   test.end();
 });
 
-metatests.test('Int64.prototype.toString() with invalid radix', test => {
+metatests.test('Int64.prototype.toString() with invalid radix', (test) => {
   const number = new common.Int64(10);
   const errorExpected = new RangeError(
-    'toString() radix argument must be between 2 and 36'
+    'toString() radix argument must be between 2 and 36',
   );
 
   test.throws(
@@ -851,27 +851,27 @@ metatests.test('Int64.prototype.toString() with invalid radix', test => {
       number.toString(1000);
     },
     errorExpected,
-    'must throw when toString() radix argument is too big'
+    'must throw when toString() radix argument is too big',
   );
   test.throws(
     () => {
       number.toString(0);
     },
     errorExpected,
-    'must throw when toString() radix argument is too small'
+    'must throw when toString() radix argument is too small',
   );
   test.throws(
     () => {
       number.toString(-1);
     },
     errorExpected,
-    'must throw when toString() radix argument is negative'
+    'must throw when toString() radix argument is negative',
   );
 
   test.end();
 });
 
-metatests.test('Int64 JSON serialization', test => {
+metatests.test('Int64 JSON serialization', (test) => {
   const zero = new common.Int64(0);
   const smallNumber = new common.Int64(10);
   const bigNumber = new common.Int64('9223372036854775807');
@@ -883,7 +883,7 @@ metatests.test('Int64 JSON serialization', test => {
   test.end();
 });
 
-metatests.test('Int64 Postgres serialization', test => {
+metatests.test('Int64 Postgres serialization', (test) => {
   const zero = new common.Int64(0);
   const smallNumber = new common.Int64(10);
   const bigNumber = new common.Int64('9223372036854775807');

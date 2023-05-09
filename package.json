@@ -33,11 +33,7 @@
     "dist/lib/stream.js": false
   },
   "readmeFilename": "README.md",
-  "files": [
-    "common.mjs",
-    "lib/",
-    "dist/"
-  ],
+  "files": ["common.mjs", "lib/", "dist/"],
   "scripts": {
     "test": "npm run -s lint && metatests test/ && for test in ./sequential-test/*.js; do metatests \"$test\"; done",
     "lint": "eslint . && prettier -c \"**/*.js\" \"**/*.json\" \"**/*.md\" \".*rc\" \"**/*.yml\"",

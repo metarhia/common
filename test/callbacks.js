@@ -10,10 +10,10 @@ metatests.case(
     'common.falseness': [[[], false]],
     'common.trueness': [[[], true]],
     'common.emptyness': [[[], undefined]],
-  }
+  },
 );
 
-metatests.test('unsafeCallback', test => {
+metatests.test('unsafeCallback', (test) => {
   const callback = (...args) => {
     test.strictSame(args, [1, 2, 3]);
     test.end();
@@ -24,7 +24,7 @@ metatests.test('unsafeCallback', test => {
   cb(...args);
 });
 
-metatests.test('unsafeCallback without callback', test => {
+metatests.test('unsafeCallback without callback', (test) => {
   const args = ['a', 'b', 'c'];
   const cb = common.unsafeCallback(args);
   test.strictSame(args, ['a', 'b', 'c']);
@@ -32,7 +32,7 @@ metatests.test('unsafeCallback without callback', test => {
   test.end();
 });
 
-metatests.test('safeCallback', test => {
+metatests.test('safeCallback', (test) => {
   const callback = (...args) => {
     test.strictSame(args, [10, 20, 30, 40, 50]);
     test.end();
@@ -43,7 +43,7 @@ metatests.test('safeCallback', test => {
   wrappedCb(...args);
 });
 
-metatests.test('safeCallback without callback', test => {
+metatests.test('safeCallback without callback', (test) => {
   const args = [11, 22, 33];
   const wrappedCb = common.safeCallback(args);
   test.strictSame(args, [11, 22, 33]);
@@ -51,7 +51,7 @@ metatests.test('safeCallback without callback', test => {
   test.end();
 });
 
-metatests.test('safeCallback return emptiness', test => {
+metatests.test('safeCallback return emptiness', (test) => {
   const args = [3, 2, 1];
   const wrappedCb = common.safeCallback(args);
   test.strictSame(wrappedCb, common.emptiness);
@@ -59,7 +59,7 @@ metatests.test('safeCallback return emptiness', test => {
   test.end();
 });
 
-metatests.test('onceCallback prevent callback twice', test => {
+metatests.test('onceCallback prevent callback twice', (test) => {
   const callback = (...args) => {
     test.strictSame(args, ['A', 'B', 'C']);
     test.end();
@@ -71,14 +71,14 @@ metatests.test('onceCallback prevent callback twice', test => {
   wrappedCb(...args);
 });
 
-metatests.test('onceCallback without callback', test => {
+metatests.test('onceCallback without callback', (test) => {
   const args = ['A', 'B', 'C'];
   const wrappedCb = common.onceCallback(args);
   test.strictSame(wrappedCb, common.emptiness);
   test.end();
 });
 
-metatests.test('requiredCallback', test => {
+metatests.test('requiredCallback', (test) => {
   const callback = (...args) => {
     test.strictSame(args, [100, 200, 300]);
     test.end();
@@ -89,7 +89,7 @@ metatests.test('requiredCallback', test => {
   wrappedCb(...args);
 });
 
-metatests.test('requiredCallback raise', test => {
+metatests.test('requiredCallback raise', (test) => {
   const args = [-1, -2, -3];
   try {
     const wrappedCb = common.requiredCallback(args);
@@ -100,7 +100,7 @@ metatests.test('requiredCallback raise', test => {
   }
 });
 
-metatests.test('once', test => {
+metatests.test('once', (test) => {
   const fn = () => {
     test.end();
   };
@@ -109,15 +109,15 @@ metatests.test('once', test => {
   wrapped();
 });
 
-metatests.test('once without function', test => {
+metatests.test('once without function', (test) => {
   const wrapped = common.once(null);
   test.strictSame(wrapped, common.emptiness);
   wrapped();
   test.end();
 });
 
-metatests.test('nop', test => {
-  const callback = err => {
+metatests.test('nop', (test) => {
+  const callback = (err) => {
     test.strictSame(err, null);
     test.end();
   };
@@ -125,7 +125,7 @@ metatests.test('nop', test => {
   common.nop(callback);
 });
 
-metatests.test('noop', test => {
+metatests.test('noop', (test) => {
   const incomingValue = 42;
   const callback = (err, result) => {
     test.strictSame(err, null);
@@ -136,7 +136,7 @@ metatests.test('noop', test => {
   common.noop(incomingValue, callback);
 });
 
-metatests.test('unsafeFunction', test => {
+metatests.test('unsafeFunction', (test) => {
   const fn = () => 42;
   const otherValue = 42;
   test.strictSame(common.unsafeFunction(fn), fn);
@@ -144,7 +144,7 @@ metatests.test('unsafeFunction', test => {
   test.end();
 });
 
-metatests.test('safeFunction', test => {
+metatests.test('safeFunction', (test) => {
   const fn = () => 42;
   const otherValue = 42;
   test.strictSame(common.safeFunction(fn), fn);
@@ -152,13 +152,13 @@ metatests.test('safeFunction', test => {
   test.end();
 });
 
-metatests.test('identity function', test => {
+metatests.test('identity function', (test) => {
   test.strictSame(common.id(10), 10);
   test.strictSame(common.id({ data: 10 }), { data: 10 });
   test.end();
 });
 
-metatests.test('async identity function', test => {
+metatests.test('async identity function', (test) => {
   let sync = true;
   const cb = (err, data) => {
     test.error(err);
