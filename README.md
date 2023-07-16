@@ -1,12 +1,11 @@
 # Metarhia Common Library
 
-![CI Status Badge](https://github.com/metarhia/common/workflows/Tests/badge.svg?branch=master)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/57f219ad89e64c848685a93f5f2f14c2)](https://www.codacy.com/app/metarhia/common)
-[![NPM Version](https://badge.fury.io/js/%40metarhia%2Fcommon.svg)](https://badge.fury.io/js/%40metarhia%2Fcommon)
-[![NPM Downloads/Month](https://img.shields.io/npm/dm/@metarhia/common.svg)](https://www.npmjs.com/package/@metarhia/common)
-[![NPM Downloads](https://img.shields.io/npm/dt/@metarhia/common.svg)](https://www.npmjs.com/package/@metarhia/common)
-
-Namespace: `api.common` in [Impress Application Server](https://github.com/metarhia/Impress)
+[![ci status](https://github.com/metarhia/common/workflows/Testing%20CI/badge.svg)](https://github.com/metarhia/common/actions?query=workflow%3A%22Testing+CI%22+branch%3Amaster)
+[![snyk](https://snyk.io/test/github/metarhia/common/badge.svg)](https://snyk.io/test/github/metarhia/common)
+[![npm version](https://badge.fury.io/js/%40metarhia%2Fcommon.svg)](https://badge.fury.io/js/%40metarhia%2Fcommon)
+[![npm downloads/month](https://img.shields.io/npm/dm/@metarhia/common.svg)](https://www.npmjs.com/package/@metarhia/common)
+[![npm downloads](https://img.shields.io/npm/dt/@metarhia/common.svg)](https://www.npmjs.com/package/@metarhia/common)
+[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/metarhia/common/blob/master/LICENSE)
 
 ## Installation
 
