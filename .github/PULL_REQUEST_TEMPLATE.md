@@ -1,11 +1,10 @@
-<!-- Brief summary of the changes: -->
-
 <!--
-Make sure you've completed all of the applicable tasks below.
+Thank you for your pull request.
+Check following steps to help us land your changes:
 Change [ ] to [x] for completed items.
 -->
 
+- [ ] tests and linter show no problems (`npm t`)
+- [ ] tests are added/updated for bug fixes and new features
 - [ ] code is properly formatted (`npm run fmt`)
-- [ ] tests are added/updated
-- [ ] documentation is updated (`npm run doc` to regenerate documentation based on comments)
-- [ ] description of changes is added under the `Unreleased` header in CHANGELOG.md
+- [ ] description of changes is added in CHANGELOG.md
