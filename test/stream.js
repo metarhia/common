@@ -49,9 +49,12 @@ metatests.test('MemoryWritable handles custom sizeLimit', async (test) => {
   const totalSize = 60;
   const limitSize = 40;
   const memoryStream = new common.MemoryWritable(limitSize);
-  test.rejects(() => {
-    const result = memoryStream.getData();
-    memoryStream.write(Buffer.alloc(totalSize));
-    return result;
-  }, new RangeError(`size limit exceeded by ${totalSize - limitSize} bytes`));
+  test.rejects(
+    () => {
+      const result = memoryStream.getData();
+      memoryStream.write(Buffer.alloc(totalSize));
+      return result;
+    },
+    new RangeError(`size limit exceeded by ${totalSize - limitSize} bytes`),
+  );
 });
