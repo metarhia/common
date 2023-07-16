@@ -8,6 +8,11 @@ and this project adheres to
 
 ## [Unreleased][unreleased]
 
+## [2.2.2][] - 2023-07-17
+
+- Update dependencies and security issues
+- Fixed code style, badges and .github templates
+
 ## [2.2.1][] - 2023-05-10
 
 ### Changed
@@ -217,7 +222,8 @@ and this project adheres to
 
 - The first stable version of the `@metarhia/common` package.
 
-[unreleased]: https://github.com/metarhia/common/compare/v2.2.1...HEAD
+[unreleased]: https://github.com/metarhia/common/compare/v2.2.2...HEAD
+[2.2.2]: https://github.com/metarhia/common/compare/v2.2.1...v2.2.2
 [2.2.1]: https://github.com/metarhia/common/compare/v2.2.0...v2.2.1
 [2.2.0]: https://github.com/metarhia/common/compare/v2.1.0...v2.2.0
 [2.1.0]: https://github.com/metarhia/common/compare/v2.0.0...v2.1.0
